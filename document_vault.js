@@ -109,9 +109,14 @@
             totalStorageBytes = raw.length * 2; // rough UTF-16
         } catch (e) {}
 
+        // Storage Quota Display (5 GB Google Cloud Storage when signed in, or browser storage)
+        const isGoogleConnected = !!(window.googleUser && window.googleUser.uid);
+        const storageLimitMB = isGoogleConnected ? 5000 : 50; // 5 GB cloud storage vs local
         const storageMB = (totalStorageBytes / (1024 * 1024)).toFixed(2);
-        const storageLimitMB = 5.0;
-        const storagePct = Math.min(100, Math.round((storageMB / storageLimitMB) * 100));
+        const storagePct = Math.max(1, Math.min(100, Math.round((storageMB / storageLimitMB) * 100)));
+        const quotaDisplay = isGoogleConnected 
+            ? `${storageMB} MB used of 5,000 MB (5 GB Google Cloud Quota)`
+            : `${storageMB} MB used (Connect Google for 5 GB Cloud Storage)`;
 
         root.innerHTML = `
             <div class="space-y-6 pb-16">
@@ -138,14 +143,14 @@
                 <div class="ui-card p-4 rounded-2xl border border-[var(--card-border)] space-y-2">
                     <div class="flex items-center justify-between text-xs">
                         <div class="flex items-center gap-2">
-                            <i class="fas fa-database text-[#e6993a]"></i>
-                            <span class="font-bold text-[var(--text-main)]">Persistent Storage Health</span>
-                            <span class="text-[10px] text-[var(--text-muted)]">(${storageMB} MB of ~${storageLimitMB} MB safe quota)</span>
+                            <i class="${isGoogleConnected ? 'fas fa-cloud text-emerald-500' : 'fas fa-database text-[#e6993a]'}"></i>
+                            <span class="font-bold text-[var(--text-main)]">${isGoogleConnected ? 'Google Cloud Vault Storage' : 'Persistent Storage Health'}</span>
+                            <span class="text-[10px] text-[var(--text-muted)]">(${quotaDisplay})</span>
                         </div>
-                        <span class="font-black text-xs ${storagePct > 80 ? 'text-rose-500' : 'text-[#e6993a]'}">${storagePct}%</span>
+                        <span class="font-black text-xs ${storagePct > 80 ? 'text-rose-500' : 'text-emerald-500'}">${storagePct}%</span>
                     </div>
                     <div class="w-full bg-[var(--subtle-bg)] rounded-full h-1.5 overflow-hidden">
-                        <div class="h-1.5 rounded-full transition-all duration-300 ${storagePct > 80 ? 'bg-rose-500' : 'bg-[#e6993a]'}" style="width: ${storagePct}%;"></div>
+                        <div class="h-1.5 rounded-full transition-all duration-300 ${storagePct > 80 ? 'bg-rose-500' : 'bg-emerald-500'}" style="width: ${storagePct}%;"></div>
                     </div>
                 </div>
 
@@ -338,7 +343,7 @@
                         <div class="border-2 border-dashed border-[var(--card-border)] hover:border-[#e6993a] rounded-2xl p-6 text-center cursor-pointer transition bg-[var(--subtle-bg)]" onclick="document.getElementById('doc-file-input').click()">
                             <i class="fas fa-file-upload text-3xl text-[#e6993a] mb-2 block"></i>
                             <span class="font-extrabold text-[var(--text-main)] block text-sm" id="file-chosen-label">Choose a file or click to browse</span>
-                            <span class="text-[10px] text-[var(--text-muted)] mt-1 block">Supports PDF, PNG, JPG, SVG, DOCX (Max safe file size: 2.5 MB)</span>
+                            <span class="text-[10px] text-[var(--text-muted)] mt-1 block">Supports PDF, PNG, JPG, SVG, DOCX (Max file size: 25 MB)</span>
                             <input type="file" id="doc-file-input" required class="hidden" onchange="window.handleFileInputChange(event)">
                         </div>
 
@@ -407,9 +412,9 @@
         const file = e.target.files[0];
         if (!file) return;
 
-        // Size check (2.5MB maximum)
-        if (file.size > 2.5 * 1024 * 1024) {
-            alert('File exceeds safe local storage limit of 2.5 MB. Please choose a smaller file or compress it first.');
+        // Size check (25MB maximum)
+        if (file.size > 25 * 1024 * 1024) {
+            alert('File exceeds limit of 25 MB. Please choose a file under 25 MB.');
             e.target.value = '';
             return;
         }
