@@ -1,4 +1,4 @@
-/**
+﻿/**
  * ELNA DIGITAL — DOCUMENT & FILE MANAGEMENT VAULT (document_vault.js)
  * Enterprise document storage with drag-and-drop file upload,
  * base64 persistent storage, category filters, folders, preview,
@@ -482,7 +482,7 @@
         window.renderDocumentVault();
     };
 
-    window.previewDocument = function (docId) {
+    window.openDocPreviewModal = window.previewDocument = function (docId) {
         const state = getState();
         const doc = (state.documents || []).find(d => d.id === docId);
         if (!doc) return;
