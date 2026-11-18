@@ -1781,6 +1781,44 @@
         tasks: [],
         theme: 'light'
     };
+    window.appState = appState;
+
+    function renderActiveView() {
+        try {
+            const stepDetailView = document.getElementById('view-step-detail');
+            if (stepDetailView && stepDetailView.classList.contains('active')) {
+                if (typeof renderStepDetailPage === 'function') renderStepDetailPage();
+                return;
+            }
+            const activeNav = document.querySelector('.nav-btn.active')?.dataset?.view;
+            if (activeNav === 'overview' && typeof renderOverview === 'function') renderOverview();
+            else if (activeNav === 'roadmap' && typeof renderRoadmap === 'function') renderRoadmap();
+            else if (activeNav === 'deadlines' && typeof renderDeadlinesView === 'function') renderDeadlinesView();
+            else if (activeNav === 'today' && typeof renderToday === 'function') renderToday();
+            else if (activeNav === 'tasks' && typeof renderTasks === 'function') renderTasks();
+        } catch (e) {
+            console.error("renderActiveView error:", e);
+        }
+    }
+    window.renderActiveTrackerView = renderActiveView;
+
+    window.getAppState = function() {
+        return appState;
+    };
+
+    window.setAppState = function(newState) {
+        if (!newState || !newState.phases || !Array.isArray(newState.phases)) return;
+        appState = newState;
+        window.appState = appState;
+        try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+        } catch (e) {
+            console.error(e);
+        }
+        if (typeof updateStats === 'function') updateStats();
+        if (typeof updateSidebarCurrentPhase === 'function') updateSidebarCurrentPhase();
+        renderActiveView();
+    };
 
     function loadState() {
         try {
@@ -1797,6 +1835,7 @@
                     } catch (err) {}
                 }
                 appState.phases = structuredClone(INITIAL_PHASES);
+                window.appState = appState;
                 saveState();
             } else {
                 const parsed = JSON.parse(raw);
@@ -1807,6 +1846,7 @@
                         parsed.phases = structuredClone(INITIAL_PHASES);
                     }
                     appState = parsed;
+                    window.appState = appState;
                 }
             }
         } catch (e) {
@@ -1821,6 +1861,7 @@
     }
 
     function saveState() {
+        window.appState = appState;
         try {
             localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
         } catch (e) {
@@ -1828,8 +1869,9 @@
         }
         updateStats();
         showToast("Progress saved");
-        if (typeof window.syncToCloud === 'function') window.syncToCloud();
+        if (typeof window.syncToCloud === 'function') window.syncToCloud(true);
     }
+    window.saveState = saveState;
 
     function getTodayKey() {
         const d = new Date();
@@ -4738,7 +4780,12 @@
 
         if (googleUser) {
             // Signed In State
-            btnAvatar.innerHTML = `<img src="${googleUser.photoURL}" alt="${googleUser.name}" class="w-full h-full object-cover rounded-full">`;
+            btnAvatar.innerHTML = `
+                <div class="relative w-full h-full flex items-center justify-center">
+                    <img src="${googleUser.photoURL}" alt="${googleUser.name}" class="w-full h-full object-cover rounded-full">
+                    <span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-500 rounded-full border border-white dark:border-slate-900 shadow-sm" title="Cloud Active"></span>
+                </div>
+            `;
             if (btnName) btnName.textContent = googleUser.name.split(' ')[0];
 
             dropdown.innerHTML = `
