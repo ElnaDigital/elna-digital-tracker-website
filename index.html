@@ -36,6 +36,11 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
+    <!-- Firebase SDK (v10 compat for real Google Auth & Firestore Cloud Storage) -->
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+
     <style>
         :root {
             --sidebar-bg: #121815;
@@ -241,6 +246,7 @@
         .theme-toggle-btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 7px;
             padding: 6px 12px;
             border-radius: 999px;
@@ -252,6 +258,22 @@
             cursor: pointer;
             transition: all 0.2s;
             box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        @media (max-width: 640px) {
+            .theme-toggle-btn {
+                padding: 0;
+                width: 34px;
+                height: 34px;
+                border-radius: 999px;
+                flex-shrink: 0;
+            }
+            .theme-toggle-btn span {
+                display: none !important;
+            }
+            .theme-toggle-btn i {
+                font-size: 13px !important;
+                margin: 0 !important;
+            }
         }
         .theme-toggle-btn:hover {
             border-color: var(--amber);
@@ -487,8 +509,11 @@
                 left: 0;
                 top: 0;
                 bottom: 0;
+                width: min(300px, 86vw);
                 transform: translateX(-100%);
-                box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+                box-shadow: 10px 0 30px rgba(0,0,0,0.6);
+                transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+                z-index: 50;
             }
             .sidebar.open { transform: translateX(0); }
         }
@@ -497,6 +522,9 @@
 <body>
 
 <div class="app-layout">
+    <!-- Mobile Sidebar Backdrop Overlay -->
+    <div id="sidebar-backdrop" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden md:hidden transition-opacity duration-200 cursor-pointer" onclick="closeSidebar()"></div>
+
     <!-- ==============================================================
          SIDEBAR (Always Deep Charcoal Forest #121815)
          ============================================================== -->
@@ -628,21 +656,27 @@
         <!-- Top Bar with Breadcrumb and Theme Switcher -->
         <!-- Top Bar with Breadcrumb, Theme Switcher & Profile with Google Sign-In -->
         <div class="top-bar">
-            <div class="flex items-center gap-3">
-                <button class="md:hidden p-2 text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white" onclick="toggleSidebar()">
+            <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+                <button class="md:hidden p-1.5 text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white shrink-0" onclick="toggleSidebar()" aria-label="Toggle menu">
                     <i class="fas fa-bars text-base"></i>
                 </button>
-                <div class="breadcrumb">
+                <div class="breadcrumb truncate text-xs sm:text-sm">
                     Roadmap / <span id="breadcrumb-current">Overview</span>
                 </div>
             </div>
 
-            <!-- Right Controls: Theme Switcher & Profile with Google Sign-In -->
-            <div class="flex items-center gap-2.5 sm:gap-3">
+            <!-- Right Controls: Theme Switcher, Cloud Sync Badge & Profile with Google Sign-In -->
+            <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+                <!-- Cloud Sync Status Badge -->
+                <div id="cloud-sync-badge" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-slate-500/10 text-slate-400 border border-slate-500/20 transition-all" title="Google Cloud Database Status">
+                    <i id="cloud-sync-icon" class="fas fa-hdd text-[10px] text-slate-400"></i>
+                    <span id="cloud-sync-text">Local Mode</span>
+                </div>
+
                 <!-- Dark / Light Mode Switcher -->
                 <button onclick="toggleTheme()" class="theme-toggle-btn" id="theme-btn" title="Toggle Light / Dark Mode">
                     <i class="fas fa-moon text-[#e6993a]" id="theme-icon"></i>
-                    <span id="theme-label">Dark Mode</span>
+                    <span id="theme-label" class="hidden sm:inline">Dark Mode</span>
                 </button>
 
                 <!-- Profile Icon with Google Sign-In Option -->
@@ -1794,6 +1828,7 @@
         }
         updateStats();
         showToast("Progress saved");
+        if (typeof window.syncToCloud === 'function') window.syncToCloud();
     }
 
     function getTodayKey() {
@@ -2398,6 +2433,7 @@
     }
 
     function navigate(viewName, updateHash = true) {
+        closeSidebar();
         if (viewName === 'tasks') {
             viewName = 'calendar';
             if (window.setCalendarViewMode) window.setCalendarViewMode('tasks');
@@ -2463,8 +2499,27 @@
     }
 
     function toggleSidebar() {
-        document.getElementById('sidebar').classList.toggle('open');
+        const sidebar = document.getElementById('sidebar');
+        const backdrop = document.getElementById('sidebar-backdrop');
+        if (!sidebar) return;
+        const isOpen = sidebar.classList.toggle('open');
+        if (backdrop) {
+            backdrop.classList.toggle('hidden', !isOpen);
+        }
     }
+
+    function closeSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        const backdrop = document.getElementById('sidebar-backdrop');
+        if (sidebar && sidebar.classList.contains('open')) {
+            sidebar.classList.remove('open');
+        }
+        if (backdrop) {
+            backdrop.classList.add('hidden');
+        }
+    }
+    window.toggleSidebar = toggleSidebar;
+    window.closeSidebar = closeSidebar;
 
     // --- SIDEBAR CURRENT PHASE WIDGET ---
     function updateSidebarCurrentPhase() {
@@ -4770,38 +4825,30 @@
     }
 
     function signInWithGoogle() {
-        const defaultName = "Abdirahman Mohamed";
-        const promptName = prompt("Sign in with Google Account:\nEnter your Name (or press OK for default):", defaultName);
-        if (promptName === null) return;
-        const name = promptName.trim() || defaultName;
-        const cleanForEmail = name.toLowerCase().replace(/[^a-z0-9]/g, '.');
-        const email = (cleanForEmail || "user") + "@gmail.com";
-        const avatarUrl = `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(name)}&backgroundColor=b6e3f4,c0aede,d1d4f9`;
-
-        googleUser = {
-            name: name,
-            email: email,
-            photoURL: avatarUrl,
-            signedInAt: new Date().toISOString()
-        };
-
-        localStorage.setItem('elna_google_user', JSON.stringify(googleUser));
-        renderProfile();
-        showToast(`Signed in as ${name}`);
-        if (typeof confetti === 'function') {
-            confetti({ particleCount: 35, spread: 60, origin: { y: 0.15 } });
+        if (typeof window.signInWithGoogle === 'function') {
+            window.signInWithGoogle();
+        } else {
+            showToast("Initializing Google Auth...");
         }
     }
 
     function switchGoogleAccount() {
-        signInWithGoogle();
+        if (typeof window.switchGoogleAccount === 'function') {
+            window.switchGoogleAccount();
+        } else {
+            signInWithGoogle();
+        }
     }
 
     function signOutGoogle() {
-        localStorage.removeItem('elna_google_user');
-        googleUser = null;
-        renderProfile();
-        showToast("Signed out of Google");
+        if (typeof window.signOutGoogle === 'function') {
+            window.signOutGoogle();
+        } else {
+            localStorage.removeItem('elna_google_user');
+            googleUser = null;
+            renderProfile();
+            showToast("Signed out of Google");
+        }
     }
 
     window.addEventListener('DOMContentLoaded', () => {
@@ -4811,6 +4858,8 @@
     });
 
 </script>
+    <!-- Firebase Real Google Auth & Cloud Firestore Sync Engine -->
+    <script src="firebase_cloud.js"></script>
     <!-- ELNA DIGITAL Client Projects Management System -->
     <script src="client_projects.js"></script>
     <!-- ELNA DIGITAL Analytics Control Center Engine -->
