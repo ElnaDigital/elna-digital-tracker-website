@@ -1,4 +1,4 @@
-// ==============================================================================
+﻿// ==============================================================================
 // ELNA DIGITAL TRACKER – CLIENT PROJECTS MANAGEMENT SYSTEM
 // Full-Featured Client, Project, Service, Payment, Expense & Profit Management
 // Currency: ETB (Ethiopian Birr)
@@ -305,7 +305,7 @@
             action: 'INITIAL_RECORD',
             itemType: 'Payment',
             itemId: 'pay-1',
-            details: 'Initial 50% advance payment recorded for Enkoye Café & Bistro (3,500 ETB)',
+            details: 'Initial advance payment recorded for registered client',
             oldValue: '0 ETB',
             newValue: '3,500 ETB',
             reason: 'Contract signing deposit via Telebirr',
@@ -317,7 +317,7 @@
             action: 'INITIAL_RECORD',
             itemType: 'Expense',
             itemId: 'exp-1',
-            details: '30 Laser-cut acrylic stands for Enkoye Café (1,400 ETB)',
+            details: 'Laser-cut acrylic stands procurement (1,400 ETB)',
             oldValue: '0 ETB',
             newValue: '1,400 ETB',
             reason: 'Procurement invoice #ST-4401',
@@ -325,386 +325,21 @@
         }
     ];
 
-    // Default Seed Data (Realistic Ethiopian Business Context with Classifications)
+    // Default Clean State Container (Zero Demo Clients - Real Business Records Only)
     const defaultData = {
-        clients: [
-            {
-                id: 'c-1',
-                businessName: 'Enkoye Café & Bistro',
-                contactPerson: 'Abebe Tadesse',
-                phone: '+251 91 123 4567',
-                email: 'abebe@enkoyecafe.com',
-                category: 'Restaurant & Café',
-                location: 'Bole Medhanialem, Addis Ababa',
-                googleMapsUrl: 'https://maps.google.com/?q=Bole+Medhanialem+Addis+Ababa',
-                classification: 'GOLD',
-                instagramUrl: 'https://instagram.com/enkoyecafe',
-                facebookUrl: 'https://facebook.com/enkoyecafe',
-                tiktokUrl: 'https://tiktok.com/@enkoyecafe',
-                websiteUrl: 'https://enkoyecafe.com',
-                otherSocialUrl: '',
-                createdAt: '2026-11-05',
-                notes: 'Specialty cafe looking for fast contactless QR menus and social media growth.'
-            },
-            {
-                id: 'c-2',
-                businessName: 'Bole Tech Hub & Co-working',
-                contactPerson: 'Hiwot Bekele',
-                phone: '+251 92 888 9900',
-                email: 'hiwot@boletech.et',
-                category: 'Tech & Innovation',
-                location: 'Bole Atlas, Addis Ababa',
-                googleMapsUrl: 'https://maps.google.com/?q=Bole+Atlas+Addis+Ababa',
-                classification: 'GOLD',
-                instagramUrl: 'https://instagram.com/boletechhub',
-                facebookUrl: '',
-                tiktokUrl: '',
-                websiteUrl: 'https://boletech.et',
-                otherSocialUrl: 'https://t.me/boletechhub',
-                createdAt: '2026-11-08',
-                notes: 'Custom web platform with member tracking system and automated booking.'
-            },
-            {
-                id: 'c-3',
-                businessName: 'Zoma Organic Kitchen',
-                contactPerson: 'Dawit Mengistu',
-                phone: '+251 93 456 7890',
-                email: 'info@zomakitchen.et',
-                category: 'Hospitality & Dining',
-                location: 'Old Airport / Mekanisa, Addis Ababa',
-                googleMapsUrl: 'https://maps.google.com/?q=Zoma+Museum+Addis+Ababa',
-                classification: 'SILVER',
-                instagramUrl: 'https://instagram.com/zomakitchen',
-                facebookUrl: 'https://facebook.com/zomakitchen',
-                tiktokUrl: 'https://tiktok.com/@zomakitchen',
-                websiteUrl: 'https://zomakitchen.et',
-                otherSocialUrl: '',
-                createdAt: '2026-11-12',
-                notes: 'Eco-conscious dining brand. Google Business profile setup and Food delivery onboarding.'
-            }
-        ],
-        services: [
-            {
-                id: 'srv-1',
-                name: 'Website Development',
-                description: 'Custom modern responsive web application & landing page with SEO optimization.',
-                defaultPrice: 25000,
-                deliveryDays: 14,
-                category: 'Development',
-                defaultTasks: [
-                    'Collect client requirements and design moodboard',
-                    'Receive initial deposit / advance payment',
-                    'Gather high-res assets, logo, and brand copy',
-                    'Design wireframe and interactive UX prototype',
-                    'Develop responsive frontend application',
-                    'Build backend & API integration',
-                    'Cross-browser and mobile device testing',
-                    'Client walkthrough and review session',
-                    'Apply client revisions and finalize features',
-                    'Receive final payment milestone',
-                    'Deploy to production domain & client handover'
-                ]
-            },
-            {
-                id: 'srv-2',
-                name: 'Food Delivery Platform Onboarding',
-                description: 'Full profile setup, professional menu digitization, pricing strategy on BeU, Deliver Addis, Tikus.',
-                defaultPrice: 8000,
-                deliveryDays: 5,
-                category: 'Integration',
-                defaultTasks: [
-                    'Audit current menu items and pricing margins',
-                    'Submit vendor application to BeU, Deliver Addis, and Tikus',
-                    'Digitize menu items with high-appeal descriptions',
-                    'Configure delivery radius and operating hours',
-                    'Conduct test dispatch and staff training'
-                ]
-            },
-            {
-                id: 'srv-3',
-                name: 'Tracking System',
-                description: 'Custom operational & inventory tracking platform with live dashboards and exportable reports.',
-                defaultPrice: 18000,
-                deliveryDays: 10,
-                category: 'Software',
-                defaultTasks: [
-                    'Define tracking metrics and user access roles',
-                    'Configure live analytics dashboard',
-                    'Set up inventory / order milestone triggers',
-                    'Integrate Telegram/SMS notification alerts',
-                    'Train management team on reporting workflows'
-                ]
-            },
-            {
-                id: 'srv-4',
-                name: 'Google Business Profile Setup',
-                description: 'Claim, verify, and fully optimize Google Maps listing, SEO keywords, photos, and review capture.',
-                defaultPrice: 5000,
-                deliveryDays: 3,
-                category: 'Marketing',
-                defaultTasks: [
-                    'Verify physical address and pin location on Google Maps',
-                    'Upload geotagged high-resolution photography',
-                    'Configure business categories, operating hours, and contact channels',
-                    'Create review solicitation QR card templates'
-                ]
-            },
-            {
-                id: 'srv-5',
-                name: 'Social Media Management',
-                description: '30-day comprehensive content calendar, high-converting reels, graphics, and community management.',
-                defaultPrice: 12000,
-                deliveryDays: 30,
-                category: 'Marketing',
-                defaultTasks: [
-                    'Develop 30-day content strategy and aesthetic theme',
-                    'Produce 12 high-engagement reels & carousel posts',
-                    'Publish posts according to prime engagement hours',
-                    'Monitor comments and direct message inquiries',
-                    'Deliver monthly performance and ROI report'
-                ]
-            },
-            {
-                id: 'srv-6',
-                name: 'QR Digital Menu',
-                description: 'Interactive multilingual digital menu with table stand acrylic displays, category filters, and analytics.',
-                defaultPrice: 6500,
-                deliveryDays: 4,
-                category: 'Hospitality',
-                defaultTasks: [
-                    'Digitize complete food and beverage catalog',
-                    'Design customized branded QR code table display stands',
-                    'Print durable waterproof acrylic QR plaques',
-                    'Test menu loading speeds on mobile networks',
-                    'Install display stands on client tables'
-                ]
-            }
-        ],
-        projects: [
-            {
-                id: 'p-1',
-                clientId: 'c-1',
-                clientName: 'Enkoye Café & Bistro',
-                name: 'Enkoye Contactless QR Digital Menu & Table Stands',
-                description: 'Design and deployment of multilingual digital QR menu with 30 printed acrylic table plaques.',
-                startDate: '2026-11-06',
-                expectedCompletionDate: '2026-11-15',
-                actualCompletionDate: '2026-11-14',
-                services: [
-                    { serviceId: 'srv-6', name: 'QR Digital Menu', price: 6500, category: 'Hospitality' }
-                ],
-                extraCharges: 1000,
-                extraChargesNote: '30 Premium laser-cut acrylic stands',
-                discountType: 'fixed',
-                discountValue: 500,
-                subtotal: 7500,
-                discountAmount: 500,
-                finalPrice: 7000,
-                status: 'Completed',
-                clientApproved: true,
-                clientApprovedAt: '2026-11-14',
-                _completionCelebrated: true,
-                _fullPaymentCelebrated: true,
-                paymentDeadline: '2026-11-16',
-                notes: 'Client was extremely satisfied with the fast delivery and clean UI.',
-                tasks: [
-                    { id: 't-101', text: 'Digitize complete food and beverage catalog', done: true, dueDate: '2026-11-08' },
-                    { id: 't-102', text: 'Design customized branded QR code table display stands', done: true, dueDate: '2026-11-10' },
-                    { id: 't-103', text: 'Print durable waterproof acrylic QR plaques (30 pcs)', done: true, dueDate: '2026-11-12' },
-                    { id: 't-104', text: 'Test menu loading speeds on Ethio Telecom 4G/5G', done: true, dueDate: '2026-11-13' },
-                    { id: 't-105', text: 'Install display stands on client tables & staff training', done: true, dueDate: '2026-11-14' }
-                ],
-                documents: [
-                    { id: 'doc-1', name: 'Enkoye_Brand_Logo.png', category: 'Logo', size: '245 KB', uploadedAt: '2026-11-06' },
-                    { id: 'doc-2', name: 'Signed_Service_Agreement_Enkoye.pdf', category: 'Contract', size: '1.2 MB', uploadedAt: '2026-11-06' }
-                ]
-            },
-            {
-                id: 'p-2',
-                clientId: 'c-2',
-                clientName: 'Bole Tech Hub & Co-working',
-                name: 'Bole Tech Hub Web Platform & Member Portal',
-                description: 'Modern responsive web platform with community directory, booking engine, and event calendar.',
-                startDate: '2026-11-10',
-                expectedCompletionDate: '2026-11-28',
-                actualCompletionDate: null,
-                services: [
-                    { serviceId: 'srv-1', name: 'Website Development', price: 25000, category: 'Development' },
-                    { serviceId: 'srv-4', name: 'Google Business Profile Setup', price: 5000, category: 'Marketing' }
-                ],
-                extraCharges: 2000,
-                extraChargesNote: 'Priority expedited development sprint',
-                discountType: 'percent',
-                discountValue: 10,
-                subtotal: 32000,
-                discountAmount: 3200,
-                finalPrice: 28800,
-                status: 'Ongoing',
-                paymentDeadline: '2026-11-25',
-                notes: 'Advance payment received. Currently developing frontend user portal.',
-                tasks: [
-                    { id: 't-201', text: 'Collect client requirements and wireframe approval', done: true, dueDate: '2026-11-12' },
-                    { id: 't-202', text: 'Receive initial advance payment (15,000 ETB)', done: true, dueDate: '2026-11-11' },
-                    { id: 't-203', text: 'Design interactive UI prototype on Figma', done: true, dueDate: '2026-11-16' },
-                    { id: 't-204', text: 'Frontend implementation with Tailwind & React', done: false, dueDate: '2026-11-20' },
-                    { id: 't-205', text: 'Setup Google Business Profile & verified pin', done: false, dueDate: '2026-11-22' },
-                    { id: 't-206', text: 'Deploy staging environment for client review', done: false, dueDate: '2026-11-26' }
-                ],
-                documents: [
-                    { id: 'doc-3', name: 'BoleTechHub_Proposal_Approved.pdf', category: 'Contract', size: '2.4 MB', uploadedAt: '2026-11-10' }
-                ]
-            },
-            {
-                id: 'p-3',
-                clientId: 'c-3',
-                clientName: 'Zoma Organic Kitchen',
-                name: 'Zoma Delivery Platform Setup & Local SEO',
-                description: 'Onboarding to BeU and Deliver Addis plus Google Maps verified local presence.',
-                startDate: '2026-11-14',
-                expectedCompletionDate: '2026-11-24',
-                actualCompletionDate: null,
-                services: [
-                    { serviceId: 'srv-2', name: 'Food Delivery Platform Onboarding', price: 8000, category: 'Integration' },
-                    { serviceId: 'srv-4', name: 'Google Business Profile Setup', price: 5000, category: 'Marketing' }
-                ],
-                extraCharges: 0,
-                extraChargesNote: '',
-                discountType: 'fixed',
-                discountValue: 0,
-                subtotal: 13000,
-                discountAmount: 0,
-                finalPrice: 13000,
-                status: 'Waiting for Client',
-                paymentDeadline: '2026-11-19',
-                notes: 'Awaiting high-resolution food photos from client photographer.',
-                tasks: [
-                    { id: 't-301', text: 'Audit current menu pricing and margins', done: true, dueDate: '2026-11-15' },
-                    { id: 't-302', text: 'Receive initial 5,000 ETB advance', done: true, dueDate: '2026-11-15' },
-                    { id: 't-303', text: 'Submit vendor application to BeU & Deliver Addis', done: false, dueDate: '2026-11-18' },
-                    { id: 't-304', text: 'Google Maps address verification postcard / video', done: false, dueDate: '2026-11-21' }
-                ],
-                documents: []
-            }
-        ],
-        payments: [
-            {
-                id: 'pay-1',
-                projectId: 'p-1',
-                clientId: 'c-1',
-                clientName: 'Enkoye Café & Bistro',
-                amount: 3500,
-                date: '2026-11-06',
-                method: 'Telebirr',
-                type: 'Advance Payment',
-                reference: 'TB-98234710',
-                notes: '50% upfront payment upon contract signing.'
-            },
-            {
-                id: 'pay-2',
-                projectId: 'p-1',
-                clientId: 'c-1',
-                clientName: 'Enkoye Café & Bistro',
-                amount: 3500,
-                date: '2026-11-14',
-                method: 'Bank Transfer',
-                type: 'Final Payment',
-                reference: 'CBE-FT-88912',
-                notes: 'Final balance paid upon installation of 30 table stands.'
-            },
-            {
-                id: 'pay-3',
-                projectId: 'p-2',
-                clientId: 'c-2',
-                clientName: 'Bole Tech Hub & Co-working',
-                amount: 15000,
-                date: '2026-11-11',
-                method: 'Bank Transfer',
-                type: 'Advance Payment',
-                reference: 'AWASH-998124',
-                notes: 'Advance deposit for Website and Google Business setup.'
-            },
-            {
-                id: 'pay-4',
-                projectId: 'p-3',
-                clientId: 'c-3',
-                clientName: 'Zoma Organic Kitchen',
-                amount: 5000,
-                date: '2026-11-15',
-                method: 'Telebirr',
-                type: 'Advance Payment',
-                reference: 'TB-4412093',
-                notes: 'Advance deposit for delivery onboarding.'
-            }
-        ],
-        expenses: [
-            {
-                id: 'exp-1',
-                name: 'Laser Acrylic Cutting & Stand Materials',
-                category: 'QR Materials',
-                amount: 1400,
-                date: '2026-11-09',
-                clientId: 'c-1',
-                projectId: 'p-1',
-                description: '30 acrylic stands purchased from Stadium Graphics printing house.',
-                receiptNote: 'Invoice #ST-4401'
-            },
-            {
-                id: 'exp-2',
-                name: 'Transportation & Client Site Visits (Bole)',
-                category: 'Transportation',
-                amount: 650,
-                date: '2026-11-13',
-                clientId: 'c-1',
-                projectId: 'p-1',
-                description: 'Ride taxi to Enkoye Cafe for menu photography & stand placement.',
-                receiptNote: 'Ride digital receipt'
-            },
-            {
-                id: 'exp-3',
-                name: 'Domain Registration & Fast Cloud VPS',
-                category: 'Hosting and Domains',
-                amount: 2800,
-                date: '2026-11-11',
-                clientId: 'c-2',
-                projectId: 'p-2',
-                description: 'Annual domain registration & cloud VPS hosting for Bole Tech Hub.',
-                receiptNote: 'Receipt #VPS-889'
-            },
-            {
-                id: 'exp-4',
-                name: 'Figma Organization & AI Developer Tools',
-                category: 'Software and Tools',
-                amount: 1950,
-                date: '2026-11-04',
-                clientId: null,
-                projectId: null,
-                description: 'General ELNA DIGITAL business subscription for design & coding tools.',
-                receiptNote: 'Monthly Card Billing'
-            },
-            {
-                id: 'exp-5',
-                name: 'ELNA DIGITAL Telegram Sponsored Ads',
-                category: 'Advertising',
-                amount: 1500,
-                date: '2026-11-07',
-                clientId: null,
-                projectId: null,
-                description: 'Promotional campaign targeting Addis Ababa restaurant and cafe owners.',
-                receiptNote: 'TG-Ad campaign #01'
-            }
-        ],
-        activityLog: [
-            { id: 'act-1', date: '2026-11-05 10:30', text: 'Client "Enkoye Café & Bistro" (GOLD) registered', type: 'client' },
-            { id: 'act-2', date: '2026-11-06 14:15', text: 'Project "Enkoye Contactless QR Digital Menu" created', type: 'project' },
-            { id: 'act-3', date: '2026-11-06 15:45', text: 'Payment of 3,500 ETB received from Enkoye Café via Telebirr (Advance Payment)', type: 'payment' },
-            { id: 'act-4', date: '2026-11-09 11:20', text: 'Expense of 1,400 ETB recorded: Laser Acrylic Cutting (QR Materials)', type: 'expense' },
-            { id: 'act-5', date: '2026-11-10 09:00', text: 'Client "Bole Tech Hub & Co-working" (GOLD) registered', type: 'client' },
-            { id: 'act-6', date: '2026-11-10 11:30', text: 'Project "Bole Tech Hub Web Platform" created', type: 'project' },
-            { id: 'act-7', date: '2026-11-11 16:00', text: 'Payment of 15,000 ETB received from Bole Tech Hub via Bank Transfer', type: 'payment' },
-            { id: 'act-8', date: '2026-11-14 17:30', text: 'Project "Enkoye Contactless QR Digital Menu" marked Completed', type: 'project' },
-            { id: 'act-9', date: '2026-11-14 18:00', text: 'Final Payment of 3,500 ETB received from Enkoye Café via Bank Transfer (Fully Paid)', type: 'payment' },
-            { id: 'act-10', date: '2026-11-15 12:00', text: 'Payment of 5,000 ETB received from Zoma Organic Kitchen via Telebirr', type: 'payment' }
-        ],
+        clients: [],
+        projects: [],
+        payments: [],
+        expenses: [],
+        activityLog: [],
+        leads: [],
+        calendarEvents: [],
+        documents: [],
+        invoices: [],
+        quotations: [],
+        receipts: [],
+        feedback: [],
+        businessGoals: [],
         packages: defaultPackages,
         pricingHistory: defaultPricingHistory,
         incomeCategories: defaultIncomeCategories,
@@ -714,6 +349,175 @@
         financialAuditLog: defaultFinancialAuditLog
     };
 
+    // Global Permanent Protection: Purge & Sanitize Any Legacy Demo Records
+    const DEMO_CLIENT_IDS = new Set(['c-1', 'c-2', 'c-3']);
+    const DEMO_PROJECT_IDS = new Set(['p-1', 'p-2', 'p-3']);
+    const DEMO_PAYMENT_IDS = new Set(['pay-1', 'pay-2', 'pay-3', 'pay-4', 'pay-5']);
+    const DEMO_EXPENSE_IDS = new Set(['exp-1', 'exp-2']);
+    const DEMO_LEAD_IDS = new Set(['lead-101', 'lead-102', 'lead-103']);
+    const DEMO_EVENT_IDS = new Set(['evt-101', 'evt-102']);
+    const DEMO_DOC_IDS = new Set(['doc-101', 'doc-102', 'doc-103', 'doc-1', 'doc-2']);
+    const DEMO_INV_IDS = new Set(['inv-101', 'inv-102']);
+    const DEMO_QTE_IDS = new Set(['qte-101', 'qte-102']);
+    const DEMO_REC_IDS = new Set(['rec-101', 'rec-102']);
+    const DEMO_FB_IDS = new Set(['fb-101', 'fb-102']);
+    const DEMO_GOAL_IDS = new Set(['goal-101', 'goal-102', 'goal-103', 'goal-104']);
+    const DEMO_NAMES_REGEX = /Enkoye|Bole Tech Hub|Zoma Organic|Kuriftu|Abyssinia Specialty|Walia Supermarket|Bole Dental/i;
+
+    function sanitizeAndPurgeDemoRecords(data) {
+        if (!data || typeof data !== 'object') return JSON.parse(JSON.stringify(defaultData));
+
+        // Purge Demo Clients
+        if (Array.isArray(data.clients)) {
+            data.clients = data.clients.filter(c => c && !DEMO_CLIENT_IDS.has(c.id) && !DEMO_NAMES_REGEX.test(c.businessName || ''));
+            data.clients.forEach(c => {
+                if (!c.classification) c.classification = 'GOLD';
+            });
+        } else {
+            data.clients = [];
+        }
+
+        // Purge Demo Projects
+        if (Array.isArray(data.projects)) {
+            data.projects = data.projects.filter(p => p && !DEMO_PROJECT_IDS.has(p.id) && !DEMO_NAMES_REGEX.test(p.clientName || '') && !DEMO_NAMES_REGEX.test(p.name || ''));
+            data.projects.forEach(p => {
+                if (p.status === 'Completed' && p.clientApproved === undefined) {
+                    p.clientApproved = true;
+                    p._completionCelebrated = true;
+                    p._fullPaymentCelebrated = true;
+                }
+                if (!p.pricingSnapshot) {
+                    const pkg = getProjectPackage(p);
+                    p.pricingSnapshot = {
+                        packageName: pkg ? pkg.name : 'Standard Package',
+                        packageId: pkg ? pkg.id : 'pkg-std',
+                        agreedPrice: p.finalPrice,
+                        basePrice: p.subtotal || p.finalPrice,
+                        extraCharges: p.extraCharges || 0,
+                        discountAmount: p.discountAmount || 0,
+                        advancePercentage: pkg ? (pkg.advancePercentage || 50) : 50,
+                        services: JSON.parse(JSON.stringify(p.services || [])),
+                        pricingVersion: 'v1.0-snapshot',
+                        createdAt: p.startDate || '2026-11-01'
+                    };
+                }
+            });
+        } else {
+            data.projects = [];
+        }
+
+        // Purge Demo Payments
+        if (Array.isArray(data.payments)) {
+            data.payments = data.payments.filter(pay => pay && !DEMO_PAYMENT_IDS.has(pay.id) && !DEMO_NAMES_REGEX.test(pay.clientName || ''));
+            data.payments.forEach((pay, idx) => {
+                if (!pay.txnId) pay.txnId = `TXN-INC-${1000 + idx + 1}`;
+                if (!pay.category) pay.category = pay.type || 'Project Payment';
+            });
+        } else {
+            data.payments = [];
+        }
+
+        // Purge Demo Expenses
+        if (Array.isArray(data.expenses)) {
+            data.expenses = data.expenses.filter(exp => exp && !DEMO_EXPENSE_IDS.has(exp.id) && !DEMO_NAMES_REGEX.test(exp.description || ''));
+            data.expenses.forEach((exp, idx) => {
+                if (!exp.txnId) exp.txnId = `TXN-EXP-${2000 + idx + 1}`;
+                if (!exp.paymentMethod) exp.paymentMethod = 'Bank Transfer';
+            });
+        } else {
+            data.expenses = [];
+        }
+
+        // Purge Demo Activity Log
+        if (Array.isArray(data.activityLog)) {
+            data.activityLog = data.activityLog.filter(act => act && !DEMO_NAMES_REGEX.test(act.text || ''));
+        } else {
+            data.activityLog = [];
+        }
+
+        // Purge Demo Leads
+        if (Array.isArray(data.leads)) {
+            data.leads = data.leads.filter(ld => ld && !DEMO_LEAD_IDS.has(ld.id) && !DEMO_NAMES_REGEX.test(ld.businessName || ''));
+        } else {
+            data.leads = [];
+        }
+
+        // Purge Demo Calendar Events
+        if (Array.isArray(data.calendarEvents)) {
+            data.calendarEvents = data.calendarEvents.filter(ev => ev && !DEMO_EVENT_IDS.has(ev.id) && !DEMO_NAMES_REGEX.test(ev.title || ''));
+        } else {
+            data.calendarEvents = [];
+        }
+
+        // Purge Demo Documents
+        if (Array.isArray(data.documents)) {
+            data.documents = data.documents.filter(dc => dc && !DEMO_DOC_IDS.has(dc.id) && !DEMO_NAMES_REGEX.test(dc.fileName || '') && !DEMO_NAMES_REGEX.test(dc.title || ''));
+        } else {
+            data.documents = [];
+        }
+
+        // Purge Demo Invoices
+        if (Array.isArray(data.invoices)) {
+            data.invoices = data.invoices.filter(inv => inv && !DEMO_INV_IDS.has(inv.id));
+        } else {
+            data.invoices = [];
+        }
+
+        // Purge Demo Quotations
+        if (Array.isArray(data.quotations)) {
+            data.quotations = data.quotations.filter(qt => qt && !DEMO_QTE_IDS.has(qt.id) && !DEMO_NAMES_REGEX.test(qt.clientName || ''));
+        } else {
+            data.quotations = [];
+        }
+
+        // Purge Demo Receipts
+        if (Array.isArray(data.receipts)) {
+            data.receipts = data.receipts.filter(rc => rc && !DEMO_REC_IDS.has(rc.id));
+        } else {
+            data.receipts = [];
+        }
+
+        // Purge Demo Feedback
+        if (Array.isArray(data.feedback)) {
+            data.feedback = data.feedback.filter(fb => fb && !DEMO_FB_IDS.has(fb.id) && !DEMO_NAMES_REGEX.test(fb.clientName || ''));
+        } else {
+            data.feedback = [];
+        }
+
+        // Purge Demo Business Goals
+        if (Array.isArray(data.businessGoals)) {
+            data.businessGoals = data.businessGoals.filter(bg => bg && !DEMO_GOAL_IDS.has(bg.id));
+        } else {
+            data.businessGoals = [];
+        }
+
+        // Ensure Configuration Collections Exist
+        if (!data.packages || !Array.isArray(data.packages) || data.packages.length === 0) {
+            data.packages = JSON.parse(JSON.stringify(defaultPackages));
+        }
+        if (!data.pricingHistory || !Array.isArray(data.pricingHistory)) {
+            data.pricingHistory = JSON.parse(JSON.stringify(defaultPricingHistory));
+        }
+        if (!data.incomeCategories || !Array.isArray(data.incomeCategories)) {
+            data.incomeCategories = JSON.parse(JSON.stringify(defaultIncomeCategories));
+        }
+        if (!data.expenseCategories || !Array.isArray(data.expenseCategories)) {
+            data.expenseCategories = JSON.parse(JSON.stringify(defaultExpenseCategories));
+        }
+        if (!data.paymentMethods || !Array.isArray(data.paymentMethods)) {
+            data.paymentMethods = JSON.parse(JSON.stringify(defaultPaymentMethods));
+        }
+        if (!data.financialSettings) {
+            data.financialSettings = JSON.parse(JSON.stringify(defaultFinancialSettings));
+        }
+        if (!data.financialAuditLog || !Array.isArray(data.financialAuditLog)) {
+            data.financialAuditLog = JSON.parse(JSON.stringify(defaultFinancialAuditLog));
+        }
+
+        return data;
+    }
+    window.sanitizeAndPurgeDemoRecords = sanitizeAndPurgeDemoRecords;
+
     // State container
     window.clientProjectsState = loadState();
 
@@ -722,455 +526,29 @@
             const raw = localStorage.getItem(STORAGE_KEY);
             if (raw) {
                 const parsed = JSON.parse(raw);
-                if (parsed && Array.isArray(parsed.clients) && Array.isArray(parsed.projects)) {
-                    // Backwards compatibility migration for classification & approval
-                    parsed.clients.forEach(c => {
-                        if (!c.classification) c.classification = 'GOLD';
-                    });
-                    if (!parsed.packages || !Array.isArray(parsed.packages) || parsed.packages.length === 0) {
-                        parsed.packages = JSON.parse(JSON.stringify(defaultPackages));
-                    }
-                    if (!parsed.pricingHistory || !Array.isArray(parsed.pricingHistory)) {
-                        parsed.pricingHistory = JSON.parse(JSON.stringify(defaultPricingHistory));
-                    }
-                    if (!parsed.incomeCategories || !Array.isArray(parsed.incomeCategories)) {
-                        parsed.incomeCategories = JSON.parse(JSON.stringify(defaultIncomeCategories));
-                    }
-                    if (!parsed.expenseCategories || !Array.isArray(parsed.expenseCategories)) {
-                        parsed.expenseCategories = JSON.parse(JSON.stringify(defaultExpenseCategories));
-                    }
-                    if (!parsed.paymentMethods || !Array.isArray(parsed.paymentMethods)) {
-                        parsed.paymentMethods = JSON.parse(JSON.stringify(defaultPaymentMethods));
-                    }
-                    if (!parsed.financialSettings) {
-                        parsed.financialSettings = JSON.parse(JSON.stringify(defaultFinancialSettings));
-                    }
-                    if (!parsed.financialAuditLog || !Array.isArray(parsed.financialAuditLog)) {
-                        parsed.financialAuditLog = JSON.parse(JSON.stringify(defaultFinancialAuditLog));
-                    }
-                    if (Array.isArray(parsed.payments)) {
-                        parsed.payments.forEach((pay, idx) => {
-                            if (!pay.txnId) pay.txnId = `TXN-INC-${1000 + idx + 1}`;
-                            if (!pay.category) pay.category = pay.type || 'Project Payment';
-                        });
-                    }
-                    if (Array.isArray(parsed.expenses)) {
-                        parsed.expenses.forEach((exp, idx) => {
-                            if (!exp.txnId) exp.txnId = `TXN-EXP-${2000 + idx + 1}`;
-                            if (!exp.paymentMethod) exp.paymentMethod = 'Bank Transfer';
-                        });
-                    }
-                    if (Array.isArray(parsed.services)) {
-                        parsed.services.forEach(s => {
-                            if (!s.status) s.status = 'active';
-                        });
-                    }
-                    parsed.projects.forEach(p => {
-                        if (p.status === 'Completed' && p.clientApproved === undefined) {
-                            p.clientApproved = true;
-                            p._completionCelebrated = true;
-                            p._fullPaymentCelebrated = true;
-                        }
-                        if (!p.pricingSnapshot) {
-                            const pkg = getProjectPackage(p);
-                            p.pricingSnapshot = {
-                                packageName: pkg ? pkg.name : 'Standard Package',
-                                packageId: pkg ? pkg.id : 'pkg-std',
-                                agreedPrice: p.finalPrice,
-                                basePrice: p.subtotal || p.finalPrice,
-                                extraCharges: p.extraCharges || 0,
-                                discountAmount: p.discountAmount || 0,
-                                advancePercentage: pkg ? (pkg.advancePercentage || 50) : 50,
-                                services: JSON.parse(JSON.stringify(p.services || [])),
-                                pricingVersion: 'v1.0-snapshot',
-                                createdAt: p.startDate || '2026-11-01'
-                            };
-                        }
-                    });
-
-                    // Ensure collections for 6 New Management Modules
-                    if (!parsed.leads || !Array.isArray(parsed.leads)) {
-                        parsed.leads = [
-                            {
-                                id: 'lead-101',
-                                businessName: 'Abyssinia Specialty Roasters',
-                                ownerName: 'Dawit Mengistu',
-                                phone: '+251 91 144 8822',
-                                email: 'dawit@abyssiniaroasters.et',
-                                location: 'Bole Medhanialem, Addis Ababa',
-                                category: 'Restaurant & Cafe',
-                                interestedServices: ['Website Development', 'Google Business Profile', 'QR Digital Menu'],
-                                interestedPackage: 'Advanced',
-                                estimatedValue: 15000,
-                                dateAdded: '2026-11-10',
-                                nextFollowUpDate: '2026-11-18',
-                                notes: 'Interested in digital menu and SEO for tourist footfall. Very promising prospect.',
-                                source: 'Referral',
-                                status: 'Proposal Sent',
-                                interactionHistory: [
-                                    { id: 'int-1', date: '2026-11-10', type: 'Call', note: 'Initial introductory call with Dawit. Explained web & menu packages.' },
-                                    { id: 'int-2', date: '2026-11-14', type: 'Proposal', note: 'Sent detailed Advanced package proposal (15,000 ETB).' }
-                                ]
-                            },
-                            {
-                                id: 'lead-102',
-                                businessName: 'Sheger Chic Boutique',
-                                ownerName: 'Bethlehem Tadesse',
-                                phone: '+251 92 355 7799',
-                                email: 'contact@shegerchic.com',
-                                location: 'Kazanchis, Addis Ababa',
-                                category: 'Retail & Shopping',
-                                interestedServices: ['Social Media Management', 'Google Business Profile'],
-                                interestedPackage: 'Basic',
-                                estimatedValue: 10000,
-                                dateAdded: '2026-11-12',
-                                nextFollowUpDate: '2026-11-19',
-                                notes: 'Wants Instagram and TikTok marketing for upcoming holiday season.',
-                                source: 'Social Media',
-                                status: 'Meeting Scheduled',
-                                interactionHistory: [
-                                    { id: 'int-3', date: '2026-11-12', type: 'Note', note: 'DM inquiry on Instagram about monthly management.' },
-                                    { id: 'int-4', date: '2026-11-15', type: 'Meeting', note: 'In-person meeting scheduled at their showroom for Nov 19.' }
-                                ]
-                            },
-                            {
-                                id: 'lead-103',
-                                businessName: 'Lucy Gourmet Bakery & Lounge',
-                                ownerName: 'Yonas Kassa',
-                                phone: '+251 93 477 1133',
-                                email: 'yonas@lucygourmet.et',
-                                location: 'Sarbet, Addis Ababa',
-                                category: 'Restaurant & Cafe',
-                                interestedServices: ['Website Development', 'Food Delivery Onboarding', 'QR Digital Menu', 'Tracking System'],
-                                interestedPackage: 'Premium',
-                                estimatedValue: 30000,
-                                dateAdded: '2026-11-05',
-                                nextFollowUpDate: '2026-11-17',
-                                notes: 'High value lead. Opening second branch and needs end-to-end digital setup.',
-                                source: 'Direct Outreach',
-                                status: 'Negotiation',
-                                interactionHistory: [
-                                    { id: 'int-5', date: '2026-11-05', type: 'Meeting', note: 'Met owner at Sarbet location. Demoed QR menu.' },
-                                    { id: 'int-6', date: '2026-11-11', type: 'Call', note: 'Negotiating payment terms (50% advance / 50% on delivery).' }
-                                ]
-                            }
-                        ];
-                    }
-
-                    if (!parsed.calendarEvents || !Array.isArray(parsed.calendarEvents)) {
-                        parsed.calendarEvents = [
-                            {
-                                id: 'evt-101',
-                                title: 'Strategy & Delivery Review with Kuriftu',
-                                date: '2026-11-19',
-                                time: '14:30',
-                                description: 'Quarterly review of social media and marketing campaign delivery.',
-                                clientId: 'c1',
-                                projectId: 'p1',
-                                priority: 'High',
-                                reminderTime: '1 hour before',
-                                completed: false,
-                                type: 'Meeting'
-                            },
-                            {
-                                id: 'evt-102',
-                                title: 'Website Launch & Final Handover (Bole Dental)',
-                                date: '2026-11-20',
-                                time: '10:00',
-                                description: 'Client review, domain pointing, and final signoff checklist.',
-                                clientId: 'c2',
-                                projectId: 'p2',
-                                priority: 'High',
-                                reminderTime: '1 day before',
-                                completed: false,
-                                type: 'Deadline'
-                            }
-                        ];
-                    }
-
-                    if (!parsed.documents || !Array.isArray(parsed.documents)) {
-                        parsed.documents = [
-                            {
-                                id: 'doc-101',
-                                title: 'Service Agreement & Deliverables Contract',
-                                category: 'Client Agreements',
-                                folder: 'Contracts',
-                                fileName: 'Kuriftu_Service_Agreement_Signed.pdf',
-                                fileSize: 184500,
-                                fileType: 'application/pdf',
-                                uploadDate: '2026-11-02 11:20',
-                                clientId: 'c1',
-                                projectId: 'p1',
-                                description: 'Countersigned master services agreement for Kuriftu Resort campaign.',
-                                notes: 'Valid through Dec 2026. Signed by GM.',
-                                data: null
-                            },
-                            {
-                                id: 'doc-102',
-                                title: 'Brand Identity & Vector Logos',
-                                category: 'Client Logos',
-                                folder: 'Assets',
-                                fileName: 'Bole_Dental_Primary_Logo.svg',
-                                fileSize: 42300,
-                                fileType: 'image/svg+xml',
-                                uploadDate: '2026-11-04 15:45',
-                                clientId: 'c2',
-                                projectId: 'p2',
-                                description: 'Official high-resolution vector brand assets for website header.',
-                                notes: 'Approved for web and digital prints.',
-                                data: null
-                            },
-                            {
-                                id: 'doc-103',
-                                title: 'Corporate Brochure & Rate Card 2026',
-                                category: 'Business Documents',
-                                folder: 'Corporate',
-                                fileName: 'ELNA_DIGITAL_RateCard_2026.pdf',
-                                fileSize: 320000,
-                                fileType: 'application/pdf',
-                                uploadDate: '2026-11-01 09:00',
-                                clientId: null,
-                                projectId: null,
-                                description: 'Official company rate card and package overview sheet.',
-                                notes: 'For client presentations.',
-                                data: null
-                            }
-                        ];
-                    }
-
-                    if (!parsed.invoices || !Array.isArray(parsed.invoices)) {
-                        parsed.invoices = [
-                            {
-                                id: 'inv-101',
-                                invoiceNumber: 'INV-2026-001',
-                                clientId: 'c1',
-                                projectId: 'p1',
-                                issueDate: '2026-11-01',
-                                dueDate: '2026-11-15',
-                                agreedPrice: 30000,
-                                items: [
-                                    { description: 'ELNA Premium Digital Package — 4 Phases execution', quantity: 1, unitPrice: 30000, amount: 30000 }
-                                ],
-                                notes: 'Thank you for choosing ELNA DIGITAL. All payments are strictly in ETB.',
-                                paymentInstructions: 'Commercial Bank of Ethiopia: 1000283921029 (ELNA DIGITAL) / Telebirr: 0911 234 567',
-                                status: 'Partially Paid'
-                            },
-                            {
-                                id: 'inv-102',
-                                invoiceNumber: 'INV-2026-002',
-                                clientId: 'c2',
-                                projectId: 'p2',
-                                issueDate: '2026-11-03',
-                                dueDate: '2026-11-18',
-                                agreedPrice: 15000,
-                                items: [
-                                    { description: 'ELNA Advanced Digital Package — Website & SEO suite', quantity: 1, unitPrice: 15000, amount: 15000 }
-                                ],
-                                notes: '50% advance received. Balance due upon delivery.',
-                                paymentInstructions: 'Commercial Bank of Ethiopia: 1000283921029 (ELNA DIGITAL) / Telebirr: 0911 234 567',
-                                status: 'Partially Paid'
-                            }
-                        ];
-                    }
-
-                    if (!parsed.quotations || !Array.isArray(parsed.quotations)) {
-                        parsed.quotations = [
-                            {
-                                id: 'qte-101',
-                                quotationNumber: 'QTE-2026-001',
-                                clientId: 'c1',
-                                clientName: 'Kuriftu Resort & Spa Bishoftu',
-                                clientPhone: '+251 91 123 4567',
-                                clientEmail: 'marketing@kuriftu.com',
-                                selectedPackage: 'Premium',
-                                items: [
-                                    { description: 'Website Development & Booking portal integration', quantity: 1, unitPrice: 15000, amount: 15000 },
-                                    { description: 'Social Media Strategy & 3-month Management campaign', quantity: 1, unitPrice: 10000, amount: 10000 },
-                                    { description: 'Google Business Profile 360 Verification & SEO Optimization', quantity: 1, unitPrice: 5000, amount: 5000 }
-                                ],
-                                subtotal: 30000,
-                                discount: 0,
-                                extraCharges: 0,
-                                totalAmount: 30000,
-                                paymentTerms: '50% Advance on project kickoff, 50% upon final client signoff and deployment.',
-                                quotationDate: '2026-10-28',
-                                expiryDate: '2026-11-28',
-                                notes: 'Quotation valid for 30 calendar days.',
-                                status: 'Accepted'
-                            },
-                            {
-                                id: 'qte-102',
-                                quotationNumber: 'QTE-2026-002',
-                                clientId: null,
-                                clientName: 'Abyssinia Specialty Roasters',
-                                clientPhone: '+251 91 144 8822',
-                                clientEmail: 'dawit@abyssiniaroasters.et',
-                                selectedPackage: 'Advanced',
-                                items: [
-                                    { description: 'ELNA Advanced Digital Package (Website, Google Profile, Menu QR)', quantity: 1, unitPrice: 15000, amount: 15000 }
-                                ],
-                                subtotal: 15000,
-                                discount: 0,
-                                extraCharges: 0,
-                                totalAmount: 15000,
-                                paymentTerms: '50% Advance payment, 50% upon delivery.',
-                                quotationDate: '2026-11-14',
-                                expiryDate: '2026-12-14',
-                                notes: 'Custom onboarding setup included.',
-                                status: 'Sent'
-                            }
-                        ];
-                    }
-
-                    if (!parsed.receipts || !Array.isArray(parsed.receipts)) {
-                        parsed.receipts = [
-                            {
-                                id: 'rec-101',
-                                receiptNumber: 'REC-2026-001',
-                                paymentId: 'pay-1',
-                                clientId: 'c1',
-                                projectId: 'p1',
-                                invoiceId: 'inv-101',
-                                amount: 15000,
-                                date: '2026-11-02',
-                                method: 'Bank Transfer',
-                                notes: '50% Kickoff advance payment acknowledged.'
-                            },
-                            {
-                                id: 'rec-102',
-                                receiptNumber: 'REC-2026-002',
-                                paymentId: 'pay-2',
-                                clientId: 'c2',
-                                projectId: 'p2',
-                                invoiceId: 'inv-102',
-                                amount: 7500,
-                                date: '2026-11-04',
-                                method: 'Telebirr',
-                                notes: '50% Advance payment for Advanced Package.'
-                            }
-                        ];
-                    }
-
-                    if (!parsed.feedback || !Array.isArray(parsed.feedback)) {
-                        parsed.feedback = [
-                            {
-                                id: 'fb-101',
-                                clientId: 'c3',
-                                projectId: 'p3',
-                                clientName: 'Walia Supermarket & Delivery',
-                                projectName: 'Walia Supermarket Food Delivery & QR Suite',
-                                overallRating: 5,
-                                qualityRating: 5,
-                                communicationRating: 5,
-                                deliveryRating: 4,
-                                comments: 'Outstanding execution and prompt customer support. Our delivery orders grew by 40% in the first two weeks.',
-                                suggestions: 'Would love automated SMS alerts for delivery riders in Phase 2.',
-                                date: '2026-11-12',
-                                status: 'Received',
-                                isTestimonial: true
-                            },
-                            {
-                                id: 'fb-102',
-                                clientId: 'c1',
-                                projectId: 'p1',
-                                clientName: 'Kuriftu Resort & Spa Bishoftu',
-                                projectName: 'Kuriftu Resort Full Digital Transformation',
-                                overallRating: 5,
-                                qualityRating: 5,
-                                communicationRating: 4,
-                                deliveryRating: 5,
-                                comments: 'High-level professional design and seamless branding across all digital touchpoints.',
-                                suggestions: 'Keep providing weekly performance summaries.',
-                                date: '2026-11-15',
-                                status: 'Received',
-                                isTestimonial: true
-                            }
-                        ];
-                    }
-
-                    if (!parsed.businessGoals || !Array.isArray(parsed.businessGoals)) {
-                        parsed.businessGoals = [
-                            {
-                                id: 'goal-101',
-                                name: 'Q4 2026 Total Revenue Milestone',
-                                description: 'Reach 100,000 ETB in actual collected revenue across digital service contracts.',
-                                category: 'Revenue Goals',
-                                target: 100000,
-                                startValue: 0,
-                                currentValue: 0,
-                                unit: 'ETB',
-                                dataSource: 'revenue',
-                                startDate: '2026-10-01',
-                                deadline: '2026-12-31',
-                                priority: 'High',
-                                notes: 'Tracked automatically against actual payment records in Earn Management.',
-                                status: 'active',
-                                achievedDate: null,
-                                _celebrated: false
-                            },
-                            {
-                                id: 'goal-102',
-                                name: 'Secure 10 Premium & Advanced Retainers',
-                                description: 'Acquire and onboard 10 enterprise digital clients in Addis Ababa.',
-                                category: 'Client Acquisition',
-                                target: 10,
-                                startValue: 0,
-                                currentValue: 0,
-                                unit: 'clients',
-                                dataSource: 'clients',
-                                startDate: '2026-10-01',
-                                deadline: '2026-12-31',
-                                priority: 'High',
-                                notes: 'Synchronized with active registered clients.',
-                                status: 'active',
-                                achievedDate: null,
-                                _celebrated: false
-                            },
-                            {
-                                id: 'goal-103',
-                                name: 'Maintain 95%+ Net Profit Margin',
-                                description: 'Achieve 75,000 ETB net operational profit after direct business expenses.',
-                                category: 'Profit Goals',
-                                target: 75000,
-                                startValue: 0,
-                                currentValue: 0,
-                                unit: 'ETB',
-                                dataSource: 'profit',
-                                startDate: '2026-10-01',
-                                deadline: '2026-12-31',
-                                priority: 'Medium',
-                                notes: 'Revenue minus direct recorded expenses.',
-                                status: 'active',
-                                achievedDate: null,
-                                _celebrated: false
-                            },
-                            {
-                                id: 'goal-104',
-                                name: '5 Star Client Satisfaction Excellence',
-                                description: 'Maintain average satisfaction above 4.8 out of 5 based on authentic client reviews.',
-                                category: 'Service Growth',
-                                target: 95,
-                                startValue: 80,
-                                currentValue: 98,
-                                unit: '%',
-                                dataSource: 'manual',
-                                startDate: '2026-11-01',
-                                deadline: '2026-12-31',
-                                priority: 'High',
-                                notes: 'Derived from Client Feedback & Reviews module.',
-                                status: 'active',
-                                achievedDate: null,
-                                _celebrated: false
-                            }
-                        ];
-                    }
+                if (parsed && typeof parsed === 'object') {
+                    const clean = sanitizeAndPurgeDemoRecords(parsed);
+                    try {
+                        localStorage.setItem(STORAGE_KEY, JSON.stringify(clean));
+                    } catch (e) {}
+                    return clean;
                 }
             }
         } catch (e) {
             console.error('Failed to load client projects state:', e);
+            try {
+                const bkp = localStorage.getItem('elna_backup_auto');
+                if (bkp) {
+                    const bkpParsed = JSON.parse(bkp);
+                    if (bkpParsed && bkpParsed.state) {
+                        return sanitizeAndPurgeDemoRecords(bkpParsed.state);
+                    }
+                }
+            } catch (errBackup) {}
         }
-        saveStateDirect(defaultData);
-        return JSON.parse(JSON.stringify(defaultData));
+        const freshClean = JSON.parse(JSON.stringify(defaultData));
+        saveStateDirect(freshClean);
+        return freshClean;
     }
 
     function saveState() {
@@ -1181,10 +559,20 @@
     window.saveClientProjectsState = saveState;
 
     function saveStateDirect(data) {
+        if (!data || typeof data !== "object") return;
         try {
+            const backupPayload = {
+                timestamp: new Date().toISOString(),
+                version: "v4.2-permanent-clean",
+                state: data
+            };
+            localStorage.setItem("elna_backup_auto", JSON.stringify(backupPayload));
             localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
         } catch (e) {
-            console.error('Failed to save client projects state:', e);
+            console.error("Failed to save client projects state:", e);
+        }
+        if (typeof window.syncToCloud === "function") {
+            window.syncToCloud();
         }
     }
 
@@ -3360,12 +2748,7 @@
                                         </span>
                                     </div>
                                     <div class="flex items-center gap-1">
-                                        <button onclick="openClientProfileModal('${c.id}')" class="p-1.5 rounded-lg text-slate-400 hover:text-[var(--text-main)] hover:bg-[var(--subtle-bg)] transition cursor-pointer" title="View Full Profile">
-                                            <i class="fas fa-external-link-alt text-xs"></i>
-                                        </button>
-                                        <button onclick="confirmDeleteClient('${c.id}')" class="p-1.5 rounded-lg text-slate-400 hover:text-rose-500 hover:bg-rose-500/10 transition cursor-pointer" title="Delete Client">
-                                            <i class="fas fa-trash-alt text-xs"></i>
-                                        </button>
+                                        <button onclick="openEditClientModal('')" class="p-1.5 rounded-lg text-slate-400 hover:text-[#e6993a] hover:bg-amber-500/10 transition cursor-pointer" title="Edit Client Details">                                             <i class="fas fa-edit text-xs"></i>                                         </button>                                         <button onclick="openClientProfileModal('')" class="p-1.5 rounded-lg text-slate-400 hover:text-[var(--text-main)] hover:bg-[var(--subtle-bg)] transition cursor-pointer" title="View Full Profile">                                             <i class="fas fa-external-link-alt text-xs"></i>                                         </button>                                         <button onclick="confirmDeleteClient('')" class="p-1.5 rounded-lg text-slate-400 hover:text-rose-500 hover:bg-rose-500/10 transition cursor-pointer" title="Delete Client">                                             <i class="fas fa-trash-alt text-xs"></i>                                         </button>
                                     </div>
                                 </div>
 
@@ -4379,7 +3762,7 @@
                                     <label class="font-bold text-[var(--text-main)] block mb-1">
                                         Business Name <span class="text-rose-500">*</span>
                                     </label>
-                                    <input id="ncr-biz-name" required placeholder="e.g. Enkoye Café & Bistro" class="w-full p-2.5 rounded-xl border border-[var(--card-border)] bg-[var(--subtle-bg)] text-xs text-[var(--text-main)] font-black focus:outline-none focus:border-[#e6993a]">
+                                    <input id="ncr-biz-name" required placeholder="e.g. Addis Tech Solutions" class="w-full p-2.5 rounded-xl border border-[var(--card-border)] bg-[var(--subtle-bg)] text-xs text-[var(--text-main)] font-black focus:outline-none focus:border-[#e6993a]">
                                 </div>
 
                                 <div>
@@ -4638,6 +4021,76 @@
                             </div>
                         </div>
 
+                        <!-- ==========================================
+                             SECTION G: ADDITIONAL DOCUMENTS (OPTIONAL)
+                             ========================================== -->
+                        <div class="pt-2">
+                            <details class="group rounded-2xl border border-[var(--card-border)] bg-[var(--subtle-bg)] overflow-hidden transition-all">
+                                <summary class="p-4 cursor-pointer font-extrabold text-sm text-[var(--text-main)] flex items-center justify-between hover:bg-[var(--card-bg)] transition select-none">
+                                    <div class="flex items-center gap-2.5">
+                                        <span class="w-6 h-6 rounded-full bg-[#e6993a]/20 text-[#e6993a] flex items-center justify-center text-xs font-black">
+                                            <i class="fas fa-folder-plus text-xs"></i>
+                                        </span>
+                                        <span>Additional Documents (Optional)</span>
+                                    </div>
+                                    <span class="text-xs text-[var(--text-muted)] font-normal group-open:hidden">
+                                        Click to attach contracts, receipts, or project files (can skip)
+                                    </span>
+                                </summary>
+                                <div class="p-4 pt-2 space-y-3.5 border-t border-[var(--card-border)] bg-[var(--card-bg)]/40">
+                                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                                        <p class="text-xs text-[var(--text-muted)] leading-relaxed">
+                                            Attach signed agreements, receipts, company profiles, or reference assets. Click <strong>+ Add Document</strong> to add more files for this client.
+                                        </p>
+                                        <button type="button" onclick="addNcrDocumentRow()" class="py-1.5 px-3 rounded-xl text-xs font-black bg-[#e6993a] text-black hover:bg-[#d8892a] transition flex items-center gap-1.5 shrink-0 shadow-xs cursor-pointer self-start sm:self-auto">
+                                            <i class="fas fa-plus text-xs"></i> + Add Document
+                                        </button>
+                                    </div>
+
+                                    <!-- Container for Dynamic Document Rows -->
+                                    <div id="ncr-docs-list-container" class="space-y-3">
+                                        <div class="ncr-doc-row p-3.5 rounded-xl border border-[var(--card-border)] bg-[var(--subtle-bg)] space-y-2.5 relative">
+                                            <div class="flex items-center justify-between pb-1.5 border-b border-[var(--card-border)]">
+                                                <span class="text-xs font-bold text-[var(--text-main)] flex items-center gap-1.5">
+                                                    <i class="fas fa-file-alt text-[#e6993a]"></i>
+                                                    <span class="ncr-doc-label">Document #1</span>
+                                                </span>
+                                                <button type="button" onclick="removeNcrDocumentRow(this)" class="p-1 rounded-lg text-slate-400 hover:text-rose-500 hover:bg-rose-500/10 transition cursor-pointer text-xs" title="Remove this document">
+                                                    <i class="fas fa-trash-alt mr-1"></i> Remove
+                                                </button>
+                                            </div>
+                                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                                                <div>
+                                                    <label class="font-bold text-[var(--text-muted)] block mb-1">Select File (PDF, DOC/DOCX, Images)</label>
+                                                    <input type="file" class="ncr-doc-file-input w-full p-2 text-xs rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] text-[var(--text-main)] file:mr-3 file:py-1 file:px-2.5 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-[#e6993a] file:text-black hover:file:bg-[#d8892a] cursor-pointer" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.webp,.svg,.txt">
+                                                </div>
+                                                <div>
+                                                    <label class="font-bold text-[var(--text-muted)] block mb-1">Category</label>
+                                                    <select class="ncr-doc-category-select w-full p-2.5 rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] text-xs text-[var(--text-main)] font-bold">
+                                                        <option value="Contracts & Agreements">1. Contracts & Agreements</option>
+                                                        <option value="Payment Receipts">2. Payment Receipts</option>
+                                                        <option value="Business Information">3. Business Information</option>
+                                                        <option value="Project References">4. Project References</option>
+                                                        <option value="Other Documents">5. Other Documents</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <label class="font-bold text-[var(--text-muted)] block mb-1">Document Title / Note (Optional)</label>
+                                                <input class="ncr-doc-title-input w-full p-2.5 rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] text-xs text-[var(--text-main)]" placeholder="e.g. Master Service Agreement 2026 or Advance Deposit Slip">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="pt-2 flex items-center justify-between border-t border-[var(--card-border)]">
+                                        <button type="button" onclick="addNcrDocumentRow()" class="py-2 px-3.5 rounded-xl text-xs font-bold bg-[#e6993a]/15 text-[#e6993a] hover:bg-[#e6993a]/25 border border-[#e6993a]/30 transition flex items-center gap-1.5 cursor-pointer">
+                                            <i class="fas fa-plus"></i> + Add Another Document
+                                        </button>
+                                        <span class="text-[11px] text-[var(--text-muted)]">Upload as many documents as needed</span>
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
                         <!-- Modal Bottom Footer Actions -->
                         <div class="pt-4 border-t border-[var(--card-border)] flex items-center justify-between">
                             <button type="button" onclick="closeNewClientModal()" class="py-2.5 px-5 rounded-xl text-xs font-bold bg-[var(--card-bg)] border border-[var(--card-border)] text-[var(--text-muted)] hover:text-[var(--text-main)] transition cursor-pointer">
@@ -5033,6 +4486,43 @@
         // 5. Commit to State
         window.clientProjectsState.clients.unshift(newClient);
         window.clientProjectsState.projects.unshift(newProject);
+        // Process Section G Optional Document Attachments (Dynamic Multi-Row Support)
+        const docRows = document.querySelectorAll('.ncr-doc-row');
+        docRows.forEach(row => {
+            const fileInput = row.querySelector('.ncr-doc-file-input');
+            if (fileInput && fileInput.files && fileInput.files[0]) {
+                const file = fileInput.files[0];
+                if (file.size > 20 * 1024 * 1024) return;
+                const cat = row.querySelector('.ncr-doc-category-select')?.value || 'Contracts & Agreements';
+                const title = row.querySelector('.ncr-doc-title-input')?.value.trim() || file.name;
+                const reader = new FileReader();
+                reader.onload = function(evt) {
+                    const newDoc = {
+                        id: 'doc-' + Date.now() + '-' + Math.floor(Math.random() * 10000),
+                        title: title,
+                        category: cat,
+                        folder: cat.includes('Contract') ? 'Contracts' : cat.includes('Receipt') ? 'Financials' : 'General',
+                        fileName: file.name,
+                        fileSize: file.size,
+                        fileType: file.type || 'application/octet-stream',
+                        uploadDate: new Date().toLocaleString(),
+                        clientId: newClient.id,
+                        projectId: newProject.id,
+                        description: `Attached during client registration for ${newClient.businessName}.`,
+                        notes: 'Initial registration document',
+                        data: evt.target.result
+                    };
+                    if (!window.clientProjectsState.documents) window.clientProjectsState.documents = [];
+                    window.clientProjectsState.documents.unshift(newDoc);
+                    saveState();
+                    if (typeof window.renderDocumentVault === 'function') window.renderDocumentVault();
+                    if (currentDetailClientId === newClient.id && typeof window.filterClientProfileDocs === 'function') {
+                        window.filterClientProfileDocs(newClient.id, 'All');
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        });
         logActivity(`New client "${bizName}" (${classification}) registered & project "${newProject.name}" created`, 'client');
 
         saveState();
@@ -5044,6 +4534,180 @@
 
     // ==============================================================================
     // 8. CLIENT PROFILE MODAL (Complete Profile View & Editable Classification)
+    // ==============================================================================
+    // ==============================================================================
+    // 8. DOCUMENT MANAGEMENT & CLIENT PROFILE HELPERS
+    // ==============================================================================
+    function formatDocBytes(bytes) {
+        if (!bytes || bytes === 0) return '0 B';
+        const k = 1024;
+        const sizes = ['B', 'KB', 'MB', 'GB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+    }
+    window.formatDocBytes = formatDocBytes;
+
+    function getDocCategoryBadge(cat) {
+        const c = cat || 'Other Documents';
+        if (c.includes('Contract') || c.includes('Agreement')) {
+            return '<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/10 text-[#e6993a] border border-amber-500/20"><i class="fas fa-file-contract mr-1"></i>Contracts & Agreements</span>';
+        } else if (c.includes('Receipt') || c.includes('Invoice') || c.includes('Payment')) {
+            return '<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-600 dark:text-[#4bd39a] border border-emerald-500/20"><i class="fas fa-receipt mr-1"></i>Payment Receipts</span>';
+        } else if (c.includes('Business') || c.includes('Logo') || c.includes('Brand')) {
+            return '<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20"><i class="fas fa-briefcase mr-1"></i>Business Information</span>';
+        } else if (c.includes('Reference') || c.includes('Quotation') || c.includes('Deliverable')) {
+            return '<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20"><i class="fas fa-lightbulb mr-1"></i>Project References</span>';
+        } else {
+            return '<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-500/10 text-slate-600 dark:text-slate-400 border border-slate-500/20"><i class="fas fa-file mr-1"></i>Other Documents</span>';
+        }
+    }
+
+    function getDocFileIcon(fileName, fileType) {
+        const fn = (fileName || '').toLowerCase();
+        const ft = (fileType || '').toLowerCase();
+        if (fn.endsWith('.pdf') || ft.includes('pdf')) {
+            return '<i class="fas fa-file-pdf text-rose-500 text-lg"></i>';
+        }
+        if (fn.endsWith('.doc') || fn.endsWith('.docx') || ft.includes('word') || ft.includes('officedocument')) {
+            return '<i class="fas fa-file-word text-blue-500 text-lg"></i>';
+        }
+        if (fn.endsWith('.jpg') || fn.endsWith('.jpeg') || fn.endsWith('.png') || fn.endsWith('.webp') || fn.endsWith('.svg') || ft.startsWith('image/')) {
+            return '<i class="fas fa-file-image text-emerald-500 text-lg"></i>';
+        }
+        return '<i class="fas fa-file-alt text-amber-500 text-lg"></i>';
+    }
+
+    let _activeClientProfileDocCategory = 'All';
+
+    window.filterClientProfileDocs = function(clientId, category) {
+        _activeClientProfileDocCategory = category;
+        const state = window.clientProjectsState;
+        const allClientDocs = (state.documents || []).filter(d => d.clientId === clientId);
+
+        let filtered = allClientDocs;
+        if (category !== 'All') {
+            filtered = allClientDocs.filter(d => {
+                const cat = d.category || 'Other Documents';
+                if (cat === category) return true;
+                if (category === 'Contracts & Agreements' && (cat.includes('Contract') || cat.includes('Agreement'))) return true;
+                if (category === 'Payment Receipts' && (cat.includes('Receipt') || cat.includes('Invoice') || cat.includes('Payment'))) return true;
+                if (category === 'Business Information' && (cat.includes('Business') || cat.includes('Logo') || cat.includes('Brand'))) return true;
+                if (category === 'Project References' && (cat.includes('Reference') || cat.includes('Quotation') || cat.includes('Deliverable'))) return true;
+                if (category === 'Other Documents' && (cat.includes('Other') || cat.includes('File'))) return true;
+                return false;
+            });
+        }
+
+        const listContainer = document.getElementById('client-profile-doc-list');
+        if (listContainer) {
+            listContainer.innerHTML = window.renderClientProfileDocsList(filtered, clientId);
+        }
+
+        document.querySelectorAll('.client-doc-tab-btn').forEach(btn => {
+            if (btn.getAttribute('data-cat') === category) {
+                btn.className = 'client-doc-tab-btn px-2.5 py-1 rounded-lg text-[11px] font-bold transition whitespace-nowrap bg-[#e6993a] text-black shadow-xs cursor-pointer';
+            } else {
+                btn.className = 'client-doc-tab-btn px-2.5 py-1 rounded-lg text-[11px] font-bold transition whitespace-nowrap bg-[var(--subtle-bg)] text-[var(--text-muted)] hover:text-[var(--text-main)] cursor-pointer';
+            }
+        });
+    };
+
+    window.renderClientProfileDocsList = function(docs, clientId) {
+        if (!docs || docs.length === 0) {
+            return `
+                <div class="p-6 rounded-2xl bg-[var(--subtle-bg)] border border-dashed border-[var(--card-border)] text-center text-xs text-[var(--text-muted)] space-y-2">
+                    <i class="fas fa-folder-open text-2xl text-slate-400"></i>
+                    <p>No documents found in this category.</p>
+                    <button onclick="openUploadClientDocModal('${clientId}')" class="text-xs font-bold text-[#e6993a] hover:underline cursor-pointer">
+                        + Upload document (PDF, DOC/DOCX, Images, Receipts)
+                    </button>
+                </div>
+            `;
+        }
+
+        return docs.map(doc => `
+            <div class="p-3 sm:p-3.5 rounded-2xl bg-[var(--subtle-bg)] border border-[var(--card-border)] hover:border-[#e6993a]/40 transition flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div class="flex items-start gap-3 min-w-0">
+                    <div class="w-10 h-10 rounded-xl bg-[var(--card-bg)] border border-[var(--card-border)] flex items-center justify-center shrink-0">
+                        ${getDocFileIcon(doc.fileName, doc.fileType)}
+                    </div>
+                    <div class="min-w-0">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <h5 class="font-extrabold text-xs text-[var(--text-main)] truncate max-w-[240px] sm:max-w-[320px]" title="${escapeQuote(doc.title || doc.fileName)}">
+                                ${doc.title || doc.fileName}
+                            </h5>
+                            ${getDocCategoryBadge(doc.category)}
+                        </div>
+                        <div class="text-[10px] text-[var(--text-muted)] flex flex-wrap items-center gap-2 mt-1">
+                            <span class="truncate max-w-[150px] font-medium">${doc.fileName}</span>
+                            <span>•</span>
+                            <span>${formatDocBytes(doc.fileSize)}</span>
+                            <span>•</span>
+                            <span>${doc.uploadDate || 'Recent'}</span>
+                        </div>
+                        ${doc.description ? `<p class="text-[10px] text-[var(--text-muted)] mt-1 italic">${escapeQuote(doc.description)}</p>` : ''}
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-1.5 shrink-0 self-end sm:self-center">
+                    <button onclick="window.previewDocument('${doc.id}')" class="py-1 px-2.5 rounded-lg text-xs font-bold bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-[#e6993a] text-[var(--text-main)] transition cursor-pointer flex items-center gap-1" title="Preview File">
+                        <i class="fas fa-eye text-[11px] text-[#e6993a]"></i> Preview
+                    </button>
+                    <button onclick="window.downloadDocument('${doc.id}')" class="py-1 px-2.5 rounded-lg text-xs font-bold bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-[#e6993a] text-[var(--text-main)] transition cursor-pointer flex items-center gap-1" title="Download File">
+                        <i class="fas fa-download text-[11px] text-emerald-500"></i> Download
+                    </button>
+                    <button onclick="window.renameClientDoc('${doc.id}', '${clientId}')" class="p-1.5 rounded-lg text-slate-400 hover:text-[var(--text-main)] hover:bg-[var(--card-bg)] transition cursor-pointer" title="Rename Document">
+                        <i class="fas fa-edit text-xs"></i>
+                    </button>
+                    <button onclick="window.deleteClientDoc('${doc.id}', '${clientId}')" class="p-1.5 rounded-lg text-slate-400 hover:text-rose-500 hover:bg-rose-500/10 transition cursor-pointer" title="Delete Document">
+                        <i class="fas fa-trash-alt text-xs"></i>
+                    </button>
+                </div>
+            </div>
+        `).join('');
+    };
+
+    window.renameClientDoc = function (docId, clientId) {
+        const state = window.clientProjectsState;
+        if (!state.documents) return;
+        const doc = state.documents.find(d => d.id === docId);
+        if (!doc) return;
+        const currentTitle = doc.title || doc.fileName || '';
+        const newTitle = prompt('Enter new title for this document:', currentTitle);
+        if (newTitle !== null && newTitle.trim() && newTitle.trim() !== currentTitle) {
+            doc.title = newTitle.trim();
+            logActivity(`Document renamed to "${doc.title}"`, 'document');
+            saveState();
+            if (typeof window.filterClientProfileDocs === 'function') {
+                window.filterClientProfileDocs(clientId, _activeClientProfileDocCategory || 'All');
+            } else {
+                openClientProfileModal(clientId);
+            }
+            if (typeof window.renderDocumentVault === 'function') window.renderDocumentVault();
+            if (typeof showToast === 'function') showToast(`Document renamed to "${doc.title}".`);
+        }
+    };
+
+    window.deleteClientDoc = function (docId, clientId) {
+        const state = window.clientProjectsState;
+        if (!state.documents) return;
+        const doc = state.documents.find(d => d.id === docId);
+        if (!doc) return;
+        if (!confirm(`Are you sure you want to permanently delete document "${doc.title || doc.fileName}"? This cannot be undone.`)) return;
+        state.documents = state.documents.filter(d => d.id !== docId);
+        logActivity(`Document "${doc.title || doc.fileName}" deleted from client`, 'document');
+        saveState();
+        if (typeof window.filterClientProfileDocs === 'function') {
+            window.filterClientProfileDocs(clientId, _activeClientProfileDocCategory || 'All');
+        } else {
+            openClientProfileModal(clientId);
+        }
+        if (typeof window.renderDocumentVault === 'function') window.renderDocumentVault();
+        if (typeof showToast === 'function') showToast('Document deleted successfully.');
+    };
+
+    // ==============================================================================
+    // 8. CLIENT PROFILE MODAL (With In-Profile Documents and Edit Client Button)
     // ==============================================================================
     window.openClientProfileModal = function (clientId) {
         currentDetailClientId = clientId;
@@ -5057,6 +4721,8 @@
             .filter(pay => pay.clientId === c.id)
             .reduce((sum, pay) => sum + (Number(pay.amount) || 0), 0);
         const bal = Math.max(0, totalBilled - totalPaid);
+
+        const clientDocs = (state.documents || []).filter(d => d.clientId === c.id);
 
         let root = document.getElementById('client-profile-modal-root');
         if (!root) {
@@ -5087,6 +4753,9 @@
                     </div>
 
                     <div class="flex items-center gap-2">
+                        <button onclick="closeClientProfileModal(); openEditClientModal('${c.id}')" class="py-1.5 px-3 rounded-xl text-xs font-black bg-[#e6993a] text-black hover:bg-[#d8892a] transition shadow-xs flex items-center gap-1.5 cursor-pointer">
+                            <i class="fas fa-edit text-xs"></i> Edit Client
+                        </button>
                         <button onclick="promptChangeClientClassification('${c.id}')" class="py-1.5 px-3 rounded-xl text-xs font-bold bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-[#e6993a] text-[var(--text-main)] transition shadow-xs flex items-center gap-1 cursor-pointer">
                             <i class="fas fa-crown text-[#e6993a]"></i> Change Rating
                         </button>
@@ -5102,7 +4771,12 @@
                     <!-- Top Client & Contact Grid -->
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <div class="p-4 rounded-2xl bg-[var(--subtle-bg)] border border-[var(--card-border)] md:col-span-2 space-y-2.5">
-                            <h4 class="font-bold text-xs uppercase tracking-wider text-[var(--text-muted)] mb-2">Primary Contact & Location</h4>
+                            <div class="flex items-center justify-between">
+                                <h4 class="font-bold text-xs uppercase tracking-wider text-[var(--text-muted)]">Primary Contact & Location</h4>
+                                <button onclick="closeClientProfileModal(); openEditClientModal('${c.id}')" class="text-[11px] font-bold text-[#e6993a] hover:underline cursor-pointer flex items-center gap-1">
+                                    <i class="fas fa-edit text-[10px]"></i> Edit Details
+                                </button>
+                            </div>
                             <div class="grid grid-cols-2 gap-3">
                                 <div>
                                     <span class="text-[10px] text-[var(--text-muted)] block">Contact Person</span>
@@ -5221,14 +4895,60 @@
                         `).join('')}
                     </div>
 
+                    <!-- ========================================================= -->
+                    <!-- CLIENT DOCUMENTS & FILES SECTION -->
+                    <!-- ========================================================= -->
+                    <div class="p-4 sm:p-5 rounded-2xl bg-[var(--subtle-bg)] border border-[var(--card-border)] space-y-3.5">
+                        <div class="flex items-center justify-between pb-2 border-b border-[var(--card-border)]">
+                            <div class="flex items-center gap-2.5">
+                                <span class="w-7 h-7 rounded-xl bg-[#e6993a]/15 text-[#e6993a] flex items-center justify-center text-xs font-bold">
+                                    <i class="fas fa-folder"></i>
+                                </span>
+                                <div>
+                                    <h4 class="font-extrabold text-sm text-[var(--text-main)]">Client Documents & Files</h4>
+                                    <p class="text-[10px] text-[var(--text-muted)]">Signed contracts, receipts, brand logos, and project references</p>
+                                </div>
+                            </div>
+                            <button onclick="openUploadClientDocModal('${c.id}')" class="py-1.5 px-3 rounded-xl text-xs font-black bg-[#e6993a] text-black hover:bg-[#d8892a] transition flex items-center gap-1.5 cursor-pointer shadow-xs">
+                                <i class="fas fa-cloud-upload-alt text-xs"></i> Upload Document
+                            </button>
+                        </div>
+
+                        <!-- 5 Category Tabs -->
+                        <div class="flex items-center gap-1.5 overflow-x-auto pb-1" id="client-doc-filter-tabs">
+                            ${[
+                                { key: 'All', label: 'All Documents' },
+                                { key: 'Contracts & Agreements', label: '1. Contracts & Agreements' },
+                                { key: 'Payment Receipts', label: '2. Payment Receipts' },
+                                { key: 'Business Information', label: '3. Business Information' },
+                                { key: 'Project References', label: '4. Project References' },
+                                { key: 'Other Documents', label: '5. Other Documents' }
+                            ].map(tab => `
+                                <button onclick="filterClientProfileDocs('${c.id}', '${tab.key}')" data-cat="${tab.key}" class="client-doc-tab-btn px-2.5 py-1 rounded-lg text-[11px] font-bold transition whitespace-nowrap ${tab.key === 'All' ? 'bg-[#e6993a] text-black shadow-xs' : 'bg-[var(--card-bg)] text-[var(--text-muted)] hover:text-[var(--text-main)] border border-[var(--card-border)]'} cursor-pointer">
+                                    ${tab.label}
+                                </button>
+                            `).join('')}
+                        </div>
+
+                        <!-- Document List Container -->
+                        <div id="client-profile-doc-list" class="space-y-2 pt-1">
+                            ${window.renderClientProfileDocsList(clientDocs, c.id)}
+                        </div>
+                    </div>
+
                     <!-- Bottom Options: Edit & Delete -->
                     <div class="pt-4 border-t border-[var(--card-border)] flex items-center justify-between">
                         <button onclick="confirmDeleteClient('${c.id}'); closeClientProfileModal();" class="py-2 px-3.5 rounded-xl text-xs font-bold text-rose-500 hover:bg-rose-500/10 transition cursor-pointer">
                             <i class="fas fa-trash-alt mr-1"></i> Delete Client
                         </button>
-                        <button onclick="closeClientProfileModal()" class="py-2 px-5 rounded-xl text-xs font-bold bg-[var(--card-bg)] border border-[var(--card-border)] text-[var(--text-main)] cursor-pointer">
-                            Done
-                        </button>
+                        <div class="flex items-center gap-2">
+                            <button onclick="closeClientProfileModal(); openEditClientModal('${c.id}')" class="py-2 px-4 rounded-xl text-xs font-black bg-[#e6993a] text-black hover:bg-[#d8892a] transition flex items-center gap-1.5 cursor-pointer shadow-xs">
+                                <i class="fas fa-edit text-xs"></i> Edit Client
+                            </button>
+                            <button onclick="closeClientProfileModal()" class="py-2 px-5 rounded-xl text-xs font-bold bg-[var(--card-bg)] border border-[var(--card-border)] text-[var(--text-main)] cursor-pointer">
+                                Done
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -5264,16 +4984,561 @@
         const client = window.clientProjectsState.clients.find(c => c.id === clientId);
         if (!client) return;
 
-        if (confirm(`Are you sure you want to delete client "${client.businessName}"? This will also remove associated projects and data.`)) {
+        if (confirm(`Are you sure you want to delete client "${client.businessName}"? This will permanently remove this client and all associated records.`)) {
             window.clientProjectsState.clients = window.clientProjectsState.clients.filter(c => c.id !== clientId);
             window.clientProjectsState.projects = window.clientProjectsState.projects.filter(p => p.clientId !== clientId);
-            window.clientProjectsState.payments = window.clientProjectsState.payments.filter(pay => pay.clientId !== clientId);
-            logActivity(`Client "${client.businessName}" and related records deleted`, 'client');
+            if (window.clientProjectsState.documents) {
+                window.clientProjectsState.documents = window.clientProjectsState.documents.filter(d => d.clientId !== clientId);
+            }
+            logActivity(`Client "${client.businessName}" deleted`, 'client');
             saveState();
+            if (typeof renderClientsList === 'function') renderClientsList();
+            if (typeof renderProjectsList === 'function') renderProjectsList();
+            if (typeof renderDocumentVault === 'function') renderDocumentVault();
+            if (typeof showToast === 'function') showToast(`Client "${client.businessName}" deleted.`);
         }
     };
 
     // ==============================================================================
+    // 8.1 EDIT CLIENT INFORMATION MODAL (Full details, package, price, description)
+    // ==============================================================================
+    window.openEditClientModal = function (clientId) {
+        const state = window.clientProjectsState;
+        const c = state.clients.find(x => x.id === clientId);
+        if (!c) return;
+
+        const primaryProj = (state.projects || []).find(p => p.clientId === c.id);
+        const availablePkgs = getAvailablePackages();
+        const selectedPkgId = primaryProj ? primaryProj.packageId : 'premium';
+
+        let root = document.getElementById('edit-client-modal-root');
+        if (!root) {
+            root = document.createElement('div');
+            root.id = 'edit-client-modal-root';
+            root.className = 'fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-xs overflow-y-auto animate-fade-in';
+            document.body.appendChild(root);
+        }
+
+        root.innerHTML = `
+            <div class="relative w-full max-w-2xl bg-white dark:bg-[#141c17] rounded-[26px] border border-slate-200 dark:border-[var(--card-border)] shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col">
+                <!-- Modal Header -->
+                <div class="p-5 border-b border-[var(--card-border)] flex items-center justify-between bg-[var(--subtle-bg)]">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-9 h-9 rounded-xl bg-[#e6993a]/15 text-[#e6993a] flex items-center justify-center text-sm font-black">
+                            <i class="fas fa-user-edit"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-base sm:text-lg font-black text-[var(--text-main)]">Edit Client Information</h3>
+                            <p class="text-[11px] text-[var(--text-muted)]">Update business contact details, package, agreed price, and project notes for ${escapeQuote(c.businessName)}</p>
+                        </div>
+                    </div>
+                    <button onclick="closeEditClientModal()" class="w-8 h-8 rounded-full bg-[var(--card-bg)] border border-[var(--card-border)] flex items-center justify-center text-slate-400 hover:text-[var(--text-main)] transition cursor-pointer">
+                        <i class="fas fa-times text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Form Body -->
+                <form onsubmit="handleSaveEditClient(event, '${c.id}')" class="p-5 overflow-y-auto flex-1 space-y-4 text-xs">
+                    <!-- Business & Contact Info -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                        <div>
+                            <label class="font-bold text-[var(--text-muted)] block mb-1">Business / Company Name *</label>
+                            <input id="edit-client-biz-name" required value="${escapeQuote(c.businessName)}" class="w-full p-2.5 rounded-xl border border-[var(--card-border)] bg-[var(--subtle-bg)] text-xs font-bold text-[var(--text-main)] focus:outline-none focus:border-[#e6993a]">
+                        </div>
+                        <div>
+                            <label class="font-bold text-[var(--text-muted)] block mb-1">Contact Person Name *</label>
+                            <input id="edit-client-contact" required value="${escapeQuote(c.contactPerson)}" class="w-full p-2.5 rounded-xl border border-[var(--card-border)] bg-[var(--subtle-bg)] text-xs text-[var(--text-main)] focus:outline-none focus:border-[#e6993a]">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                        <div>
+                            <label class="font-bold text-[var(--text-muted)] block mb-1">Phone Number *</label>
+                            <input id="edit-client-phone" required value="${escapeQuote(c.phone)}" class="w-full p-2.5 rounded-xl border border-[var(--card-border)] bg-[var(--subtle-bg)] text-xs font-semibold text-[var(--text-main)] focus:outline-none focus:border-[#e6993a]">
+                        </div>
+                        <div>
+                            <label class="font-bold text-[var(--text-muted)] block mb-1">Email Address</label>
+                            <input id="edit-client-email" type="email" value="${escapeQuote(c.email || '')}" class="w-full p-2.5 rounded-xl border border-[var(--card-border)] bg-[var(--subtle-bg)] text-xs text-[var(--text-main)] focus:outline-none focus:border-[#e6993a]">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                        <div>
+                            <label class="font-bold text-[var(--text-muted)] block mb-1">Business Category / Type</label>
+                            <select id="edit-client-category" class="w-full p-2.5 rounded-xl border border-[var(--card-border)] bg-[var(--subtle-bg)] text-xs font-bold text-[var(--text-main)] focus:outline-none focus:border-[#e6993a]">
+                                <option value="Restaurant & Café" ${c.category === 'Restaurant & Café' ? 'selected' : ''}>Restaurant & Café</option>
+                                <option value="Tech & Startup" ${c.category === 'Tech & Startup' ? 'selected' : ''}>Tech & Startup</option>
+                                <option value="Healthcare & Clinic" ${c.category === 'Healthcare & Clinic' ? 'selected' : ''}>Healthcare & Clinic</option>
+                                <option value="Hotel & Hospitality" ${c.category === 'Hotel & Hospitality' ? 'selected' : ''}>Hotel & Hospitality</option>
+                                <option value="Retail & Boutique" ${c.category === 'Retail & Boutique' ? 'selected' : ''}>Retail & Boutique</option>
+                                <option value="Education & School" ${c.category === 'Education & School' ? 'selected' : ''}>Education & School</option>
+                                <option value="Real Estate" ${c.category === 'Real Estate' ? 'selected' : ''}>Real Estate</option>
+                                <option value="Professional Services" ${c.category === 'Professional Services' ? 'selected' : ''}>Professional Services</option>
+                                <option value="Other Business" ${c.category === 'Other Business' ? 'selected' : ''}>Other Business</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="font-bold text-[var(--text-muted)] block mb-1">Client Classification</label>
+                            <select id="edit-client-classification" class="w-full p-2.5 rounded-xl border border-[var(--card-border)] bg-[var(--subtle-bg)] text-xs font-black text-[var(--text-main)] focus:outline-none focus:border-[#e6993a]">
+                                <option value="GOLD" ${c.classification === 'GOLD' ? 'selected' : ''}>👑 GOLD Client</option>
+                                <option value="SILVER" ${c.classification === 'SILVER' ? 'selected' : ''}>🥈 SILVER Client</option>
+                                <option value="BRONZE" ${c.classification === 'BRONZE' ? 'selected' : ''}>🥉 BRONZE Client</option>
+                                <option value="STARTER" ${c.classification === 'STARTER' ? 'selected' : ''}>🌱 STARTER Client</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Location & Google Maps -->
+                    <div class="space-y-2">
+                        <div>
+                            <label class="font-bold text-[var(--text-muted)] block mb-1">Location & Physical Address *</label>
+                            <input id="edit-client-location" required value="${escapeQuote(c.location || '')}" class="w-full p-2.5 rounded-xl border border-[var(--card-border)] bg-[var(--subtle-bg)] text-xs text-[var(--text-main)] focus:outline-none focus:border-[#e6993a]">
+                        </div>
+                        <div>
+                            <label class="font-bold text-[var(--text-muted)] block mb-1">Google Maps URL (Optional)</label>
+                            <input id="edit-client-maps" value="${escapeQuote(c.googleMapsUrl || '')}" placeholder="https://maps.google.com/?q=..." class="w-full p-2.5 rounded-xl border border-[var(--card-border)] bg-[var(--subtle-bg)] text-xs text-[var(--text-main)] focus:outline-none focus:border-[#e6993a]">
+                        </div>
+                    </div>
+
+                    <!-- Package & Agreed Terms (User Requirement 7.A) -->
+                    <div class="p-3.5 rounded-2xl bg-[var(--subtle-bg)] border border-[var(--card-border)] space-y-3">
+                        <div class="flex items-center gap-2 pb-1 border-b border-[var(--card-border)]">
+                            <span class="w-5 h-5 rounded-full bg-[#e6993a]/20 text-[#e6993a] flex items-center justify-center text-[10px] font-black"><i class="fas fa-box"></i></span>
+                            <h4 class="font-extrabold text-xs text-[var(--text-main)]">Selected Package & Financial Terms</h4>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="font-bold text-[var(--text-muted)] block mb-1">Selected Package</label>
+                                <select id="edit-client-package" class="w-full p-2.5 rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] text-xs font-black text-[var(--text-main)] focus:outline-none focus:border-[#e6993a]">
+                                    ${availablePkgs.map(pkg => `
+                                        <option value="${pkg.id}" ${pkg.id === selectedPkgId ? 'selected' : ''}>
+                                            ${pkg.name} — ${formatETB(pkg.price)}
+                                        </option>
+                                    `).join('')}
+                                </select>
+                            </div>
+                            <div>
+                                <label class="font-bold text-[var(--text-muted)] block mb-1">Agreed Project Price (ETB)</label>
+                                <input id="edit-client-price" type="number" step="100" min="0" value="${primaryProj ? (primaryProj.finalPrice || '') : ''}" class="w-full p-2.5 rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] text-xs font-black text-emerald-600 dark:text-[#4bd39a] focus:outline-none focus:border-[#e6993a]">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="font-bold text-[var(--text-muted)] block mb-1">Payment Terms</label>
+                            <input id="edit-client-terms" value="${escapeQuote(primaryProj?.paymentTerms || '50% Advance, 50% on Delivery')}" placeholder="e.g. 50% Advance, 50% on Delivery" class="w-full p-2.5 rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] text-xs font-semibold text-[var(--text-main)] focus:outline-none focus:border-[#e6993a]">
+                        </div>
+
+                        <div>
+                            <label class="font-bold text-[var(--text-muted)] block mb-1">Project Scope & Description</label>
+                            <textarea id="edit-client-proj-desc" rows="2" placeholder="Summary of project deliverables and goals..." class="w-full p-2.5 rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] text-xs text-[var(--text-main)] focus:outline-none focus:border-[#e6993a]">${escapeQuote(primaryProj?.description || '')}</textarea>
+                        </div>
+                    </div>
+
+                    <!-- Online Presence & Social Links -->
+                    <div class="space-y-2 pt-2 border-t border-[var(--card-border)]">
+                        <label class="font-bold text-[var(--text-muted)] block">Digital Presence & Social Media (Optional)</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                            <input id="edit-client-website" value="${escapeQuote(c.websiteUrl || '')}" placeholder="Website URL (https://...)" class="w-full p-2 rounded-xl border border-[var(--card-border)] bg-[var(--subtle-bg)] text-xs text-[var(--text-main)]">
+                            <input id="edit-client-instagram" value="${escapeQuote(c.instagramUrl || '')}" placeholder="Instagram URL (https://...)" class="w-full p-2 rounded-xl border border-[var(--card-border)] bg-[var(--subtle-bg)] text-xs text-[var(--text-main)]">
+                            <input id="edit-client-facebook" value="${escapeQuote(c.facebookUrl || '')}" placeholder="Facebook URL (https://...)" class="w-full p-2 rounded-xl border border-[var(--card-border)] bg-[var(--subtle-bg)] text-xs text-[var(--text-main)]">
+                            <input id="edit-client-tiktok" value="${escapeQuote(c.tiktokUrl || '')}" placeholder="TikTok URL (https://...)" class="w-full p-2 rounded-xl border border-[var(--card-border)] bg-[var(--subtle-bg)] text-xs text-[var(--text-main)]">
+                            <input id="edit-client-other-social" value="${escapeQuote(c.otherSocialUrl || '')}" placeholder="Other / Telegram Link" class="w-full p-2 rounded-xl border border-[var(--card-border)] bg-[var(--subtle-bg)] text-xs text-[var(--text-main)] col-span-1 sm:col-span-2">
+                        </div>
+                    </div>
+
+                    <!-- Notes -->
+                    <div>
+                        <label class="font-bold text-[var(--text-muted)] block mb-1">Internal Business Notes</label>
+                        <textarea id="edit-client-notes" rows="2" class="w-full p-2.5 rounded-xl border border-[var(--card-border)] bg-[var(--subtle-bg)] text-xs text-[var(--text-main)] focus:outline-none focus:border-[#e6993a]">${escapeQuote(c.notes || '')}</textarea>
+                    </div>
+
+                    <!-- Modal Actions -->
+                    <div class="pt-3 border-t border-[var(--card-border)] flex items-center justify-between">
+                        <button type="button" onclick="closeEditClientModal()" class="py-2 px-4 rounded-xl text-xs font-bold bg-[var(--card-bg)] border border-[var(--card-border)] text-[var(--text-muted)] hover:text-[var(--text-main)] transition cursor-pointer">
+                            Cancel
+                        </button>
+                        <button type="submit" class="py-2 px-5 rounded-xl text-xs font-black bg-[#e6993a] text-black hover:bg-[#d8892a] transition shadow-md flex items-center gap-1.5 cursor-pointer">
+                            <i class="fas fa-check"></i> Save Changes
+                        </button>
+                    </div>
+                </form>
+            </div>
+        `;
+    };
+
+    window.closeEditClientModal = function () {
+        const el = document.getElementById('edit-client-modal-root');
+        if (el) el.remove();
+    };
+
+    window.handleSaveEditClient = function (e, clientId) {
+        e.preventDefault();
+        const state = window.clientProjectsState;
+        const c = state.clients.find(x => x.id === clientId);
+        if (!c) return;
+
+        const oldName = c.businessName;
+        const newBizName = document.getElementById('edit-client-biz-name').value.trim();
+        const contact = document.getElementById('edit-client-contact').value.trim();
+        const phone = document.getElementById('edit-client-phone').value.trim();
+        const email = document.getElementById('edit-client-email')?.value.trim() || '';
+        const category = document.getElementById('edit-client-category').value;
+        const classification = document.getElementById('edit-client-classification').value;
+        const location = document.getElementById('edit-client-location').value.trim();
+        const mapsUrl = document.getElementById('edit-client-maps')?.value.trim() || '';
+        const website = document.getElementById('edit-client-website')?.value.trim() || '';
+        const insta = document.getElementById('edit-client-instagram')?.value.trim() || '';
+        const fb = document.getElementById('edit-client-facebook')?.value.trim() || '';
+        const tiktok = document.getElementById('edit-client-tiktok')?.value.trim() || '';
+        const otherSocial = document.getElementById('edit-client-other-social')?.value.trim() || '';
+        const notes = document.getElementById('edit-client-notes')?.value.trim() || '';
+
+        // 1. Update Client (Preserve c.id)
+        c.businessName = newBizName;
+        c.contactPerson = contact;
+        c.phone = phone;
+        c.email = email;
+        c.category = category;
+        c.classification = classification;
+        c.location = location;
+        c.googleMapsUrl = mapsUrl;
+        c.websiteUrl = website;
+        c.instagramUrl = insta;
+        c.facebookUrl = fb;
+        c.tiktokUrl = tiktok;
+        c.otherSocialUrl = otherSocial;
+        c.notes = notes;
+
+        // 2. Update Primary Project Details if present
+        const primaryProj = (state.projects || []).find(p => p.clientId === c.id);
+        if (primaryProj) {
+            primaryProj.clientName = newBizName;
+            if (primaryProj.name && primaryProj.name.includes(oldName)) {
+                primaryProj.name = primaryProj.name.replace(oldName, newBizName);
+            }
+            const pkgEl = document.getElementById('edit-client-package');
+            if (pkgEl && pkgEl.value) {
+                primaryProj.packageId = pkgEl.value;
+            }
+            const priceEl = document.getElementById('edit-client-price');
+            if (priceEl && priceEl.value !== '') {
+                const parsed = Number(priceEl.value);
+                if (!isNaN(parsed) && parsed >= 0) {
+                    primaryProj.finalPrice = parsed;
+                }
+            }
+            const termsEl = document.getElementById('edit-client-terms');
+            if (termsEl) {
+                primaryProj.paymentTerms = termsEl.value.trim();
+            }
+            const descEl = document.getElementById('edit-client-proj-desc');
+            if (descEl) {
+                primaryProj.description = descEl.value.trim();
+            }
+        }
+
+        // Synchronize business name update across other associated projects
+        if (oldName !== newBizName && Array.isArray(state.projects)) {
+            state.projects.forEach(p => {
+                if (p.clientId === c.id) {
+                    p.clientName = newBizName;
+                    if (p.name && p.name.includes(oldName)) {
+                        p.name = p.name.replace(oldName, newBizName);
+                    }
+                }
+            });
+        }
+
+        logActivity(`Client "${c.businessName}" details updated`, 'client');
+        saveState();
+        closeEditClientModal();
+        openClientProfileModal(clientId);
+        if (typeof renderClientsList === 'function') renderClientsList();
+        if (typeof renderProjectsList === 'function') renderProjectsList();
+        if (typeof showToast === 'function') showToast(`Client "${c.businessName}" updated successfully.`);
+    };
+
+    // ==============================================================================
+    // 8.2 UPLOAD CLIENT DOCUMENT MODAL (Multi-file & 5 Standard Categories)
+    // ==============================================================================
+    // ==============================================================================
+    // 8.2 DYNAMIC REGISTRATION DOCUMENT ROW BUILDERS (User Requirement: + Add Document)
+    // ==============================================================================
+    window.addNcrDocumentRow = function () {
+        const container = document.getElementById('ncr-docs-list-container');
+        if (!container) return;
+        const count = container.querySelectorAll('.ncr-doc-row').length + 1;
+        const row = document.createElement('div');
+        row.className = 'ncr-doc-row p-3.5 rounded-xl border border-[var(--card-border)] bg-[var(--subtle-bg)] space-y-2.5 relative animate-fade-in';
+        row.innerHTML = `
+            <div class="flex items-center justify-between pb-1.5 border-b border-[var(--card-border)]">
+                <span class="text-xs font-bold text-[var(--text-main)] flex items-center gap-1.5">
+                    <i class="fas fa-file-alt text-[#e6993a]"></i>
+                    <span class="ncr-doc-label">Document #${count}</span>
+                </span>
+                <button type="button" onclick="removeNcrDocumentRow(this)" class="p-1 rounded-lg text-slate-400 hover:text-rose-500 hover:bg-rose-500/10 transition cursor-pointer text-xs" title="Remove this document">
+                    <i class="fas fa-trash-alt mr-1"></i> Remove
+                </button>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <div>
+                    <label class="font-bold text-[var(--text-muted)] block mb-1">Select File (PDF, DOC/DOCX, Images)</label>
+                    <input type="file" class="ncr-doc-file-input w-full p-2 text-xs rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] text-[var(--text-main)] file:mr-3 file:py-1 file:px-2.5 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-[#e6993a] file:text-black hover:file:bg-[#d8892a] cursor-pointer" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.webp,.svg,.txt">
+                </div>
+                <div>
+                    <label class="font-bold text-[var(--text-muted)] block mb-1">Category</label>
+                    <select class="ncr-doc-category-select w-full p-2.5 rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] text-xs text-[var(--text-main)] font-bold">
+                        <option value="Contracts & Agreements">1. Contracts & Agreements</option>
+                        <option value="Payment Receipts">2. Payment Receipts</option>
+                        <option value="Business Information">3. Business Information</option>
+                        <option value="Project References">4. Project References</option>
+                        <option value="Other Documents">5. Other Documents</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <label class="font-bold text-[var(--text-muted)] block mb-1">Document Title / Note (Optional)</label>
+                <input class="ncr-doc-title-input w-full p-2.5 rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] text-xs text-[var(--text-main)]" placeholder="e.g. Master Service Agreement 2026 or Advance Deposit Slip">
+            </div>
+        `;
+        container.appendChild(row);
+        renumberNcrDocRows();
+    };
+
+    window.removeNcrDocumentRow = function (btn) {
+        const row = btn.closest('.ncr-doc-row');
+        if (row) {
+            row.remove();
+            renumberNcrDocRows();
+        }
+    };
+
+    function renumberNcrDocRows() {
+        const container = document.getElementById('ncr-docs-list-container');
+        if (!container) return;
+        const rows = container.querySelectorAll('.ncr-doc-row');
+        rows.forEach((r, idx) => {
+            const lbl = r.querySelector('.ncr-doc-label');
+            if (lbl) lbl.textContent = `Document #${idx + 1}`;
+        });
+    }
+
+    // ==============================================================================
+    // 8.3 UPLOAD CLIENT DOCUMENT MODAL (Multi-Row Builder & 5 Standard Categories)
+    // ==============================================================================
+    window.openUploadClientDocModal = function (clientId) {
+        const state = window.clientProjectsState;
+        const c = state.clients.find(x => x.id === clientId);
+        if (!c) return;
+
+        let root = document.getElementById('upload-client-doc-modal-root');
+        if (!root) {
+            root = document.createElement('div');
+            root.id = 'upload-client-doc-modal-root';
+            root.className = 'fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-xs overflow-y-auto animate-fade-in';
+            document.body.appendChild(root);
+        }
+
+        root.innerHTML = `
+            <div class="relative w-full max-w-xl bg-white dark:bg-[#141c17] rounded-[24px] border border-slate-200 dark:border-[var(--card-border)] shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col">
+                <div class="p-4 sm:p-5 border-b border-[var(--card-border)] flex items-center justify-between bg-[var(--subtle-bg)]">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-8 h-8 rounded-xl bg-[#e6993a]/15 text-[#e6993a] flex items-center justify-center text-xs">
+                            <i class="fas fa-paperclip"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-sm sm:text-base font-black text-[var(--text-main)]">Attach Documents to ${escapeQuote(c.businessName)}</h3>
+                            <p class="text-[10px] text-[var(--text-muted)]">Upload contracts, payment receipts, brand assets, or project files</p>
+                        </div>
+                    </div>
+                    <button onclick="closeUploadClientDocModal()" class="w-7 h-7 rounded-full bg-[var(--card-bg)] border border-[var(--card-border)] flex items-center justify-center text-slate-400 hover:text-[var(--text-main)] transition cursor-pointer">
+                        <i class="fas fa-times text-xs"></i>
+                    </button>
+                </div>
+
+                <form onsubmit="handleUploadClientDocSubmit(event, '${c.id}')" class="p-4 sm:p-5 overflow-y-auto flex-1 space-y-3.5 text-xs">
+                    <div class="flex items-center justify-between">
+                        <span class="font-bold text-[var(--text-muted)]">Upload Document List</span>
+                        <button type="button" onclick="addClientUploadDocRow()" class="py-1 px-2.5 rounded-lg text-xs font-bold bg-[#e6993a] text-black hover:bg-[#d8892a] transition flex items-center gap-1 cursor-pointer">
+                            <i class="fas fa-plus text-[10px]"></i> + Add Document
+                        </button>
+                    </div>
+
+                    <!-- Dynamic Container for Upload Rows -->
+                    <div id="client-upload-docs-container" class="space-y-3">
+                        <div class="client-upload-doc-row p-3 rounded-xl border border-[var(--card-border)] bg-[var(--subtle-bg)] space-y-2">
+                            <div class="flex items-center justify-between pb-1 border-b border-[var(--card-border)]">
+                                <span class="font-bold text-[var(--text-main)] text-[11px] client-upload-doc-label">Document #1</span>
+                                <button type="button" onclick="removeClientUploadDocRow(this)" class="text-slate-400 hover:text-rose-500 text-[11px] cursor-pointer">
+                                    <i class="fas fa-trash-alt"></i> Remove
+                                </button>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                <div>
+                                    <label class="font-bold text-[var(--text-muted)] block mb-1">Select File *</label>
+                                    <input type="file" required class="client-upload-file-input w-full p-1.5 text-xs rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] text-[var(--text-main)] file:mr-2 file:py-1 file:px-2 file:rounded-lg file:border-0 file:text-[11px] file:font-bold file:bg-[#e6993a] file:text-black hover:file:bg-[#d8892a] cursor-pointer" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.webp,.svg,.txt">
+                                </div>
+                                <div>
+                                    <label class="font-bold text-[var(--text-muted)] block mb-1">Category *</label>
+                                    <select class="client-upload-category-select w-full p-2 rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] text-xs font-bold text-[var(--text-main)]">
+                                        <option value="Contracts & Agreements">1. Contracts & Agreements</option>
+                                        <option value="Payment Receipts">2. Payment Receipts</option>
+                                        <option value="Business Information">3. Business Information</option>
+                                        <option value="Project References">4. Project References</option>
+                                        <option value="Other Documents">5. Other Documents</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="font-bold text-[var(--text-muted)] block mb-1">Document Title (Optional)</label>
+                                <input class="client-upload-title-input w-full p-2 rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] text-xs text-[var(--text-main)]" placeholder="e.g. Signed Service Agreement 2026">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-1 flex items-center justify-between">
+                        <button type="button" onclick="addClientUploadDocRow()" class="py-1.5 px-3 rounded-xl text-xs font-bold bg-[#e6993a]/15 text-[#e6993a] hover:bg-[#e6993a]/25 border border-[#e6993a]/30 transition flex items-center gap-1.5 cursor-pointer">
+                            <i class="fas fa-plus"></i> + Add Another Document
+                        </button>
+                    </div>
+
+                    <div class="pt-3 border-t border-[var(--card-border)] flex items-center justify-between">
+                        <button type="button" onclick="closeUploadClientDocModal()" class="py-2 px-4 rounded-xl text-xs font-bold bg-[var(--card-bg)] border border-[var(--card-border)] text-[var(--text-muted)] hover:text-[var(--text-main)] transition cursor-pointer">
+                            Cancel
+                        </button>
+                        <button type="submit" class="py-2 px-5 rounded-xl text-xs font-black bg-[#e6993a] text-black hover:bg-[#d8892a] transition shadow-md flex items-center gap-1.5 cursor-pointer">
+                            <i class="fas fa-upload text-xs"></i> Attach Document(s)
+                        </button>
+                    </div>
+                </form>
+            </div>
+        `;
+    };
+
+    window.addClientUploadDocRow = function () {
+        const container = document.getElementById('client-upload-docs-container');
+        if (!container) return;
+        const count = container.querySelectorAll('.client-upload-doc-row').length + 1;
+        const row = document.createElement('div');
+        row.className = 'client-upload-doc-row p-3 rounded-xl border border-[var(--card-border)] bg-[var(--subtle-bg)] space-y-2 animate-fade-in';
+        row.innerHTML = `
+            <div class="flex items-center justify-between pb-1 border-b border-[var(--card-border)]">
+                <span class="font-bold text-[var(--text-main)] text-[11px] client-upload-doc-label">Document #${count}</span>
+                <button type="button" onclick="removeClientUploadDocRow(this)" class="text-slate-400 hover:text-rose-500 text-[11px] cursor-pointer">
+                    <i class="fas fa-trash-alt"></i> Remove
+                </button>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <div>
+                    <label class="font-bold text-[var(--text-muted)] block mb-1">Select File *</label>
+                    <input type="file" required class="client-upload-file-input w-full p-1.5 text-xs rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] text-[var(--text-main)] file:mr-2 file:py-1 file:px-2 file:rounded-lg file:border-0 file:text-[11px] file:font-bold file:bg-[#e6993a] file:text-black hover:file:bg-[#d8892a] cursor-pointer" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.webp,.svg,.txt">
+                </div>
+                <div>
+                    <label class="font-bold text-[var(--text-muted)] block mb-1">Category *</label>
+                    <select class="client-upload-category-select w-full p-2 rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] text-xs font-bold text-[var(--text-main)]">
+                        <option value="Contracts & Agreements">1. Contracts & Agreements</option>
+                        <option value="Payment Receipts">2. Payment Receipts</option>
+                        <option value="Business Information">3. Business Information</option>
+                        <option value="Project References">4. Project References</option>
+                        <option value="Other Documents">5. Other Documents</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <label class="font-bold text-[var(--text-muted)] block mb-1">Document Title (Optional)</label>
+                <input class="client-upload-title-input w-full p-2 rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] text-xs text-[var(--text-main)]" placeholder="e.g. Advance Deposit Slip or Reference Document">
+            </div>
+        `;
+        container.appendChild(row);
+        renumberClientUploadDocRows();
+    };
+
+    window.removeClientUploadDocRow = function (btn) {
+        const row = btn.closest('.client-upload-doc-row');
+        if (row) {
+            row.remove();
+            renumberClientUploadDocRows();
+        }
+    };
+
+    function renumberClientUploadDocRows() {
+        const container = document.getElementById('client-upload-docs-container');
+        if (!container) return;
+        const rows = container.querySelectorAll('.client-upload-doc-row');
+        rows.forEach((r, idx) => {
+            const lbl = r.querySelector('.client-upload-doc-label');
+            if (lbl) lbl.textContent = `Document #${idx + 1}`;
+        });
+    }
+
+    window.closeUploadClientDocModal = function () {
+        const el = document.getElementById('upload-client-doc-modal-root');
+        if (el) el.remove();
+    };
+
+    window.handleUploadClientDocSubmit = function (e, clientId) {
+        e.preventDefault();
+        const rows = document.querySelectorAll('.client-upload-doc-row');
+        const validRows = [];
+        rows.forEach(r => {
+            const fileInput = r.querySelector('.client-upload-file-input');
+            if (fileInput && fileInput.files && fileInput.files[0]) {
+                validRows.push({
+                    file: fileInput.files[0],
+                    category: r.querySelector('.client-upload-category-select')?.value || 'Contracts & Agreements',
+                    title: r.querySelector('.client-upload-title-input')?.value.trim() || fileInput.files[0].name
+                });
+            }
+        });
+
+        if (validRows.length === 0) {
+            alert('Please select at least one file to attach.');
+            return;
+        }
+
+        const state = window.clientProjectsState;
+        if (!state.documents) state.documents = [];
+
+        let processed = 0;
+        validRows.forEach(item => {
+            const file = item.file;
+            if (file.size > 20 * 1024 * 1024) {
+                alert(`File "${file.name}" exceeds 20MB limit and was skipped.`);
+                return;
+            }
+            const reader = new FileReader();
+            reader.onload = function (evt) {
+                const newDoc = {
+                    id: 'doc-' + Date.now() + '-' + Math.floor(Math.random() * 10000),
+                    title: item.title,
+                    category: item.category,
+                    folder: item.category.includes('Contract') ? 'Contracts' : item.category.includes('Receipt') ? 'Financials' : 'General',
+                    fileName: file.name,
+                    fileSize: file.size,
+                    fileType: file.type || 'application/octet-stream',
+                    uploadDate: new Date().toLocaleString(),
+                    clientId: clientId,
+                    projectId: null,
+                    description: '',
+                    notes: '',
+                    data: evt.target.result
+                };
+
+                state.documents.unshift(newDoc);
+                processed++;
+                if (processed === validRows.length) {
+                    logActivity(`Attached ${validRows.length} document(s) to client`, 'document');
+                    saveState();
+                    closeUploadClientDocModal();
+                    openClientProfileModal(clientId);
+                    if (typeof window.renderDocumentVault === 'function') window.renderDocumentVault();
+                    if (typeof showToast === 'function') showToast(`Successfully attached ${validRows.length} document(s).`);
+                }
+            };
+            reader.readAsDataURL(file);
+        });
+    };
     // 8.5 DYNAMIC PACKAGE ENGINE & PROJECT WORKSPACE SYSTEM
     // ==============================================================================
     function getAvailablePackages() {
@@ -9502,3 +9767,5 @@
     };
 
 })();
+
+
