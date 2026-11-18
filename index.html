@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELNA DIGITAL — Growth Roadmap</title>
+    <title>ELNA DIGITAL � Growth Roadmap</title>
     <link rel="icon" type="image/png" href="logo.png">
     
     <!-- Fonts: Plus Jakarta Sans for clean high-contrast modern typography -->
@@ -628,7 +628,7 @@
                         </div>
                     </div>
                     <span class="text-xs px-2.5 py-0.5 rounded-full bg-amber-500/20 text-[#e6993a] font-black shrink-0 flex items-center gap-1 border border-amber-500/30">
-                        🔥 <span id="side-streak-count">3</span>
+                        <i class="fas fa-fire text-[#e6993a]"></i> <span id="side-streak-count">3</span>
                     </span>
                 </div>
 
@@ -703,7 +703,7 @@
              1. OVERVIEW VIEW (Exact Layout from Uploaded Screenshot)
              ============================================================== -->
         <section id="view-overview" class="view active">
-            <div class="eyebrow-text">TEN PHASES · ONE DIRECTION</div>
+            <div class="eyebrow-text">TEN PHASES � ONE DIRECTION</div>
             <h1 class="hero-title">From first client to leading<br>technology company.</h1>
 
             <!-- 4 Top Stat Metric Cards -->
@@ -780,7 +780,7 @@
                 <div class="lg:col-span-2 ui-card p-6 space-y-4">
                     <div class="flex items-center justify-between">
                         <div class="text-[11px] font-extrabold text-[#a06438] dark:text-[#e6993a] tracking-wider uppercase" id="focus-eyebrow">
-                            FOCUS NOW · PHASE 2
+                            FOCUS NOW � PHASE 2
                         </div>
                     </div>
 
@@ -802,7 +802,7 @@
                             <div id="focus-progress-bar" class="bg-[#e6993a] h-1.5 rounded-full transition-all duration-300" style="width: 0%"></div>
                         </div>
                         <div class="text-[11px] text-[var(--text-muted)] font-medium" id="focus-progress-label">
-                            0/9 done · 0%
+                            0/9 done � 0%
                         </div>
                     </div>
 
@@ -850,7 +850,7 @@
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
                 <div>
                     <h1 class="text-2xl font-black text-[var(--text-main)]">Business Roadmap</h1>
-                    <p class="text-xs text-[var(--text-muted)] mt-1">10 strategic phases · 68 actionable steps</p>
+                    <p class="text-xs text-[var(--text-muted)] mt-1">10 strategic phases � 68 actionable steps</p>
                 </div>
                 <div class="flex flex-wrap gap-2">
                     <button onclick="expandAllRoadmap()" class="btn-black !text-xs !py-1.5"><i class="fas fa-expand-alt mr-1"></i> Expand All</button>
@@ -978,7 +978,7 @@
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
                 <div>
                     <div class="text-[11px] font-extrabold text-[#a06438] dark:text-[#e6993a] tracking-wider uppercase mb-1">
-                        INTELLIGENT TIMELINE · DYNAMIC DEADLINES
+                        INTELLIGENT TIMELINE � DYNAMIC DEADLINES
                     </div>
                     <h1 class="text-2xl font-black text-[var(--text-main)]">Phase Deadline Management</h1>
                     <p class="text-xs text-[var(--text-muted)] mt-1">Automatic date shifting, early completion cascading, and missed deadline extensions.</p>
@@ -1270,7 +1270,7 @@
 
         <!-- Minimal Footer -->
         <div class="mt-12 pt-6 border-t border-[var(--card-border)] text-center text-xs text-[var(--text-muted)]">
-            ELNA DIGITAL · Growth Roadmap · Ethiopian Tech Transformation
+            ELNA DIGITAL � Growth Roadmap � Ethiopian Tech Transformation
         </div>
     </main>
 </div>
@@ -1522,9 +1522,9 @@
                     <i class="fas fa-fire text-[#e6993a]"></i> Priority
                 </label>
                 <select id="rdm-modal-priority" class="w-full bg-transparent border-0 text-xs font-semibold text-[var(--text-main)] focus:outline-none p-0 cursor-pointer">
-                    <option value="high">🔥 High</option>
-                    <option value="medium">⚡ Medium</option>
-                    <option value="low">🌱 Low</option>
+                    <option value="high">🔴 High</option>
+                    <option value="medium">🟡 Medium</option>
+                    <option value="low">🟢 Low</option>
                 </select>
                 <span class="text-[10px] text-[var(--text-muted)] block mt-2">Urgency Level</span>
             </div>
@@ -1535,9 +1535,9 @@
                     <i class="fas fa-circle-notch text-[#e6993a]"></i> Status
                 </label>
                 <select id="rdm-modal-status" class="w-full bg-transparent border-0 text-xs font-semibold text-[var(--text-main)] focus:outline-none p-0 cursor-pointer">
-                    <option value="pending">⏳ Pending</option>
-                    <option value="in_progress">⚡ In Progress</option>
-                    <option value="completed">✓ Completed</option>
+                    <option value="pending">? Pending</option>
+                    <option value="in_progress">? In Progress</option>
+                    <option value="completed">? Completed</option>
                 </select>
                 <span class="text-[10px] text-[var(--text-muted)] block mt-2">Current State</span>
             </div>
@@ -1762,17 +1762,7 @@
         "Deliver files, access and handover"
     ];
 
-    const INITIAL_PROJECTS = [
-        {
-            id: 1,
-            name: "Enkoye Café QR Menu",
-            client: "Enkoye Café & Bistro",
-            service: "Interactive Digital Menu",
-            due: "2026-11-20",
-            status: "In progress",
-            tasks: DEFAULT_MILESTONES.map((text, idx) => ({ id: idx + 1, text, done: idx < 4 }))
-        }
-    ];
+    const INITIAL_PROJECTS = [];
 
     const STORAGE_KEY = 'elna_digital_v4';
     let appState = {
@@ -1840,10 +1830,14 @@
             } else {
                 const parsed = JSON.parse(raw);
                 if (parsed.phases && parsed.phases.length === 10) {
-                    // Check if step hierarchy is present
                     const hasSteps = parsed.phases[0].tasks && parsed.phases[0].tasks.some(t => t.step);
                     if (!hasSteps || parsed.phases[0].tasks.length < 10) {
                         parsed.phases = structuredClone(INITIAL_PHASES);
+                    }
+                    if (Array.isArray(parsed.projects)) {
+                        parsed.projects = parsed.projects.filter(p => p && p.name !== 'Enkoye Caf� QR Menu' && p.client !== 'Enkoye Caf� & Bistro');
+                    } else {
+                        parsed.projects = [];
                     }
                     appState = parsed;
                     window.appState = appState;
@@ -1853,7 +1847,6 @@
             console.error(e);
         }
 
-        // Load Theme
         const savedTheme = localStorage.getItem('elna_theme') || appState.theme || 'light';
         setTheme(savedTheme);
         initPhaseSchedules();
@@ -1863,6 +1856,12 @@
     function saveState() {
         window.appState = appState;
         try {
+            const backupPayload = {
+                timestamp: new Date().toISOString(),
+                version: 'v4.2-app-clean',
+                data: appState
+            };
+            localStorage.setItem('elna_app_backup_auto', JSON.stringify(backupPayload));
             localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
         } catch (e) {
             console.error(e);
@@ -2372,7 +2371,7 @@
                                     <button onclick="extendPhaseDeadline(${p.id}, 3)" class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-[#e6993a]/15 text-[#a06438] dark:text-[#e6993a] border border-[#e6993a]/30 hover:bg-[#e6993a] hover:text-black cursor-pointer" title="Extend by 3 days">+3d</button>
                                     <button onclick="extendPhaseDeadline(${p.id}, 7)" class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-[#e6993a] text-black hover:bg-[#d8892a] cursor-pointer" title="Extend by 7 days">+7d</button>
                                 </div>
-                            ` : `<span class="text-[10px] text-[var(--text-muted)]">—</span>`}
+                            ` : `<span class="text-[10px] text-[var(--text-muted)]">�</span>`}
                         </td>
                     </tr>
                 `;
@@ -2402,7 +2401,7 @@
                             <div class="min-w-0">
                                 <h4 class="font-bold text-[var(--text-main)] truncate">${item.phaseTitle}</h4>
                                 <p class="text-[11px] text-[var(--text-muted)] mt-0.5">
-                                    <i class="far fa-calendar text-[10px] mr-1"></i> ${formatFullDate(item.date)} · ${item.reason}
+                                    <i class="far fa-calendar text-[10px] mr-1"></i> ${formatFullDate(item.date)} � ${item.reason}
                                 </p>
                             </div>
                         </div>
@@ -2756,7 +2755,7 @@
                         dueList.push({
                             title: t.title,
                             dueDate: dDate,
-                            source: `Phase ${phase.id} · Step ${sIdx + 1}`,
+                            source: `Phase ${phase.id} � Step ${sIdx + 1}`,
                             priority: t.priority || 'medium',
                             action: () => goToStepDetailPage(phase.id, sIdx)
                         });
@@ -2837,15 +2836,80 @@
         // --- OVERVIEW DASHBOARD ---
     // --- FULL JOURNEY MILESTONE STRIP (WIDE DASHBOARD VIEW) ---
     // --- FULL JOURNEY MILESTONE STRIP (ALL 10 PHASES IN DASHBOARD - ZERO HORIZONTAL SCROLLING) ---
+    // --- SVG CARTOON CLIMBER AVATAR (ELNA DIGITAL EXPEDITION) ---
+    function renderCartoonClimberSvg(isClimbing, isAllComplete, sizeClass = "w-11 h-11 sm:w-12 sm:h-12") {
+        return `
+            <svg class="${sizeClass} drop-shadow-md transition-all duration-500 ${isClimbing ? 'animate-bounce' : ''}" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Backpack with climbing ropes & emerald zipper -->
+                <rect x="22" y="38" width="22" height="32" rx="6" fill="#121815" stroke="#4bd39a" stroke-width="2.5"/>
+                <rect x="25" y="44" width="16" height="5" rx="2" fill="#4bd39a"/>
+                <circle cx="33" cy="58" r="3.5" fill="#e6993a"/>
+                <path d="M22 45 C16 48 16 60 22 62" stroke="#e6993a" stroke-width="2" stroke-linecap="round"/>
+                
+                <!-- Body / Jacket in ELNA Amber with charcoal trim -->
+                <rect x="36" y="36" width="30" height="34" rx="8" fill="#e6993a" stroke="#121815" stroke-width="2.5"/>
+                <path d="M51 36 L51 70" stroke="#121815" stroke-width="2" stroke-dasharray="2 2"/>
+                <circle cx="44" cy="46" r="2.5" fill="#121815"/>
+                <circle cx="44" cy="56" r="2.5" fill="#121815"/>
+
+                <!-- Head with warm complexion -->
+                <circle cx="52" cy="24" r="14" fill="#e5a663" stroke="#121815" stroke-width="2.5"/>
+                
+                <!-- Eyes with friendly determination -->
+                <ellipse cx="49" cy="22" rx="2.5" ry="3.5" fill="#121815"/>
+                <ellipse cx="58" cy="22" rx="2.5" ry="3.5" fill="#121815"/>
+                <circle cx="48" cy="20.5" r="1" fill="#ffffff"/>
+                <circle cx="57" cy="20.5" r="1" fill="#ffffff"/>
+                
+                <!-- Cheerful smile -->
+                <path d="M50 29 Q54 33 58 29" stroke="#121815" stroke-width="2" stroke-linecap="round" fill="none"/>
+                <!-- Blush -->
+                <circle cx="45" cy="26" r="2" fill="#d97706" opacity="0.4"/>
+                <circle cx="61" cy="26" r="2" fill="#d97706" opacity="0.4"/>
+
+                <!-- Backward Baseball Cap in ELNA Gold/Amber -->
+                <path d="M38 22 C38 13 66 13 66 22 Z" fill="#e6993a" stroke="#121815" stroke-width="2.5"/>
+                <path d="M38 22 C32 23 28 26 26 28" stroke="#121815" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="52" cy="12" r="2.5" fill="#121815"/>
+
+                <!-- Legs & Hiking Pants -->
+                <rect x="40" y="68" width="8" height="18" rx="4" fill="#1e293b" stroke="#121815" stroke-width="2"/>
+                <rect x="53" y="68" width="8" height="18" rx="4" fill="#1e293b" stroke="#121815" stroke-width="2"/>
+                
+                <!-- Climbing Boots -->
+                <path d="M38 82 H50 C50 86 48 88 44 88 H36 C36 84 38 82 38 82 Z" fill="#b45309" stroke="#121815" stroke-width="2"/>
+                <path d="M51 82 H63 C63 86 61 88 57 88 H49 C49 84 51 82 51 82 Z" fill="#b45309" stroke="#121815" stroke-width="2"/>
+
+                ${isAllComplete ? `
+                    <!-- Victory Summit Golden Flag & Crown -->
+                    <line x1="68" y1="12" x2="68" y2="82" stroke="#121815" stroke-width="2.5" stroke-linecap="round"/>
+                    <path d="M68 12 L90 22 L68 32 Z" fill="#4bd39a" stroke="#121815" stroke-width="2"/>
+                    <circle cx="68" cy="10" r="3.5" fill="#fcd34d"/>
+                    <path d="M46 6 L52 11 L58 6 L56 12 L48 12 Z" fill="#fcd34d" stroke="#121815" stroke-width="1.5"/>
+                ` : `
+                    <!-- Expedition Trekking Pole in Hand -->
+                    <line x1="68" y1="36" x2="77" y2="86" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round"/>
+                    <line x1="65" y1="46" x2="71" y2="46" stroke="#121815" stroke-width="2"/>
+                    <circle cx="67" cy="42" r="3.5" fill="#fcd34d" stroke="#121815" stroke-width="2"/>
+                `}
+            </svg>
+        `;
+    }
+
+    // --- FULL JOURNEY MILESTONE STRIP & DYNAMIC CARTOON CLIMBING AVATAR ---
     function renderDashboardJourney() {
         const container = document.getElementById('dashboard-journey-container');
         if (!container) return;
 
-        let completedCount = 0;
+        let completedPhasesCount = 0;
         let totalTasks = 0;
         let totalDone = 0;
-        let activePhaseId = 1;
+        let activePhase = appState.phases[0];
         let foundActive = false;
+
+        // Check for any ongoing task
+        let ongoingTask = null;
+        let ongoingPhase = null;
 
         appState.phases.forEach((p) => {
             const pDone = p.tasks.filter(t => t.done).length;
@@ -2853,15 +2917,42 @@
             totalDone += pDone;
             const isDone = p.tasks.length > 0 && pDone === p.tasks.length;
             if (isDone) {
-                completedCount++;
+                completedPhasesCount++;
             } else if (!foundActive) {
-                activePhaseId = p.id;
+                activePhase = p;
                 foundActive = true;
             }
+
+            p.tasks.forEach(t => {
+                if (!t.done && t.inProgress && !ongoingTask) {
+                    ongoingTask = t;
+                    ongoingPhase = p;
+                }
+            });
         });
 
+        const isAllComplete = completedPhasesCount === 10;
+        if (isAllComplete) {
+            activePhase = appState.phases[9];
+        }
+
         const overallPct = totalTasks > 0 ? Math.round((totalDone / totalTasks) * 100) : 0;
-        const progressTrackWidth = Math.min(100, Math.max(0, ((completedCount - 0.5) / 9) * 100));
+        const activePhaseDone = activePhase.tasks.filter(t => t.done).length;
+        const activePhaseTotal = activePhase.tasks.length;
+        const activePhasePct = activePhaseTotal > 0 ? Math.round((activePhaseDone / activePhaseTotal) * 100) : 0;
+
+        // Calculate progress percentage on track (0% to 100%)
+        let progressTrackWidth = 0;
+        if (isAllComplete) {
+            progressTrackWidth = 100;
+        } else {
+            const phaseBase = (activePhase.id - 1) / 9;
+            const phaseFraction = activePhaseTotal > 0 ? (activePhaseDone / activePhaseTotal) / 9 : 0;
+            const ongoingBump = ongoingTask ? 0.02 : 0;
+            progressTrackWidth = Math.min(100, Math.max(0, Math.round((phaseBase + phaseFraction + ongoingBump) * 100)));
+        }
+
+        const isClimbing = Boolean(ongoingTask);
 
         const milestoneIcons = {
             1: 'fas fa-rocket',
@@ -2894,15 +2985,15 @@
             const pTotal = p.tasks.length;
             const pPct = pTotal > 0 ? Math.round((pDone / pTotal) * 100) : 0;
             const isComplete = pTotal > 0 && pDone === pTotal;
-            const isActive = p.id === activePhaseId;
+            const isActive = !isAllComplete && p.id === activePhase.id;
 
             const iconClass = milestoneIcons[p.id] || 'fas fa-flag';
             const shortName = shortNames[p.id] || p.shortTitle || p.title;
 
-            // Styling by State
             let nodeStyle = '';
             let statusPill = '';
             let ringEffect = '';
+            let climberBadge = '';
 
             if (isComplete) {
                 nodeStyle = 'bg-emerald-500 text-black border-2 border-emerald-300 shadow-[0_0_14px_rgba(75,211,154,0.4)]';
@@ -2911,13 +3002,24 @@
                 nodeStyle = 'bg-gradient-to-br from-[#e6993a] to-amber-500 text-black border-2 border-amber-300 shadow-[0_0_18px_rgba(230,153,58,0.5)]';
                 ringEffect = '<span class="absolute -inset-1 rounded-2xl bg-amber-400/35 animate-pulse -z-10"></span>';
                 statusPill = `<span class="text-[9px] font-extrabold text-amber-600 dark:text-amber-300 bg-amber-500/15 px-1.5 py-0.2 rounded-full border border-amber-500/30 flex items-center justify-center gap-0.5"><span class="w-1 h-1 rounded-full bg-amber-500 animate-ping"></span>${pPct}%</span>`;
+                
+                // Active cartoon climber miniature badge right above the active node
+                climberBadge = `
+                    <div class="absolute -top-7 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center pointer-events-none animate-bounce">
+                        <div class="px-1.5 py-0.5 rounded-full bg-[#121815] text-[#e6993a] border border-[#e6993a] text-[8px] font-black uppercase tracking-wider flex items-center gap-1 shadow-md whitespace-nowrap">
+                            <span>🧗 YOU</span>
+                        </div>
+                        <div class="w-1 h-1 bg-[#e6993a] rotate-45 -mt-0.5"></div>
+                    </div>
+                `;
             } else {
                 nodeStyle = 'bg-[var(--subtle-bg)] text-slate-400 dark:text-slate-500 border border-[var(--card-border)] group-hover:border-[#e6993a]/40 group-hover:text-[var(--text-main)]';
                 statusPill = '<span class="text-[9px] font-bold text-[var(--text-muted)] opacity-70">Upcoming</span>';
             }
 
             return `
-                <div class="flex flex-col items-center w-full min-w-0 group cursor-pointer transition-all duration-300 hover:-translate-y-1" onclick="goToPhaseInRoadmap(${p.id})">
+                <div class="flex flex-col items-center w-full min-w-0 group cursor-pointer transition-all duration-300 hover:-translate-y-1 relative" onclick="goToPhaseInRoadmap(${p.id})">
+                    ${climberBadge}
                     <!-- Icon Squircle Node -->
                     <div class="relative w-9 h-9 sm:w-10 sm:h-10 lg:w-11 lg:h-11 rounded-xl sm:rounded-2xl flex items-center justify-center text-xs sm:text-sm lg:text-base transition-transform duration-300 group-hover:scale-105 ${nodeStyle}">
                         ${ringEffect}
@@ -2929,30 +3031,27 @@
                         </span>
                     </div>
 
-                    <!-- Milestone Metadata -->
-                    <div class="text-center mt-2 w-full px-0.5">
-                        <h4 class="text-[10px] sm:text-[11px] lg:text-xs font-bold text-[var(--text-main)] leading-tight truncate group-hover:text-[#e6993a] transition-colors" title="Phase ${p.id}: ${p.title}">
+                    <!-- Label Under Node -->
+                    <div class="text-center mt-1.5 w-full space-y-0.5">
+                        <span class="text-[10px] sm:text-[11px] font-black text-[var(--text-main)] block truncate group-hover:text-[#e6993a] transition-colors leading-tight">
                             ${shortName}
-                        </h4>
-                        <div class="mt-1 flex items-center justify-center">
+                        </span>
+                        <div class="hidden sm:block">
                             ${statusPill}
                         </div>
-                        <span class="text-[9px] text-[var(--text-muted)] font-medium block mt-0.5 opacity-75">
-                            ${formatShortDate(p.startDate)}
-                        </span>
                     </div>
                 </div>
             `;
         }).join('');
 
         container.innerHTML = `
-            <!-- Header Row -->
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 mb-4 border-b border-[var(--card-border)]">
+            <!-- Top Expedition Header -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 mb-3 border-b border-[var(--card-border)]">
                 <div>
                     <div class="flex items-center gap-2">
-                        <span class="text-[10px] font-extrabold uppercase tracking-widest text-[#a06438] dark:text-[#e6993a]">ALL 10 MILESTONES · FULL JOURNEY</span>
+                        <span class="text-[10px] font-extrabold uppercase tracking-widest text-[#a06438] dark:text-[#e6993a]">ALL 10 MILESTONES � FULL EXPEDITION</span>
                         <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">
-                            ${completedCount} / 10 Completed
+                            ${completedPhasesCount} / 10 Phases Complete
                         </span>
                     </div>
                     <h3 class="text-base sm:text-lg font-black text-[var(--text-main)] mt-0.5">
@@ -2962,7 +3061,7 @@
 
                 <div class="flex items-center gap-3">
                     <div class="text-right hidden sm:block">
-                        <span class="text-[11px] font-bold text-[var(--text-muted)] block">Overall Momentum</span>
+                        <span class="text-[11px] font-bold text-[var(--text-muted)] block">Momentum Score</span>
                         <span class="text-xs font-extrabold text-[#e6993a]">${overallPct}% Complete (${totalDone}/${totalTasks} Tasks)</span>
                     </div>
                     <button onclick="navigate('roadmap')" class="py-1.5 px-3 rounded-xl text-xs font-bold bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-[#e6993a] hover:text-[#e6993a] text-[var(--text-main)] transition-all shadow-xs flex items-center gap-1.5 cursor-pointer">
@@ -2972,11 +3071,76 @@
                 </div>
             </div>
 
+            <!-- Dynamic Cartoon Climber Hero Expedition Card (Real Task & Milestone Hook) -->
+            <div class="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#121815] via-[#16221c] to-[#121815] text-white border border-emerald-500/20 shadow-lg relative overflow-hidden mb-4">
+                <div class="relative z-10 flex flex-col sm:flex-row items-center gap-4">
+                    <!-- Left: Cartoon Climber Avatar -->
+                    <div class="relative shrink-0 flex items-center justify-center">
+                        <div class="relative">
+                            ${renderCartoonClimberSvg(isClimbing, isAllComplete, "w-14 h-14 sm:w-16 sm:h-16")}
+                            ${isClimbing ? `
+                                <span class="absolute -bottom-1 -right-1 px-1.5 py-0.2 rounded-full text-[8px] font-black bg-amber-500 text-black uppercase tracking-wider animate-pulse shadow-sm">
+                                    CLIMBING
+                                </span>
+                            ` : ''}
+                        </div>
+                    </div>
+
+                    <!-- Center: Climber Status & Live Milestone Context -->
+                    <div class="flex-1 min-w-0 text-center sm:text-left space-y-1">
+                        ${isAllComplete ? `
+                            <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-[10px] font-black bg-amber-400/20 text-yellow-300 border border-yellow-400/40">
+                                <i class="fas fa-crown text-[10px]"></i> SUMMIT CONQUERED!
+                            </div>
+                            <h4 class="text-base sm:text-lg font-black text-white">Leading Technology Company Status Achieved!</h4>
+                            <p class="text-xs text-slate-300">All 10 strategic roadmap phases and 68 steps successfully completed.</p>
+                        ` : isClimbing ? `
+                            <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-[10px] font-black bg-amber-500/20 text-[#e6993a] border border-[#e6993a]/40 animate-pulse">
+                                <i class="fas fa-hiking text-[10px]"></i> CLIMBER IN MOTION � TASK ONGOING
+                            </div>
+                            <h4 class="text-sm sm:text-base font-black text-white truncate">Working on: "${ongoingTask.title}"</h4>
+                            <p class="text-xs text-slate-300">Phase ${ongoingPhase.id}: ${ongoingPhase.shortTitle || ongoingPhase.title} � Step: ${ongoingTask.step || 'Milestone Step'}</p>
+                            <div class="pt-1 flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                                <button onclick="toggleRoadmapTask(${ongoingPhase.id}, ${ongoingTask.id})" class="py-1.5 px-3.5 rounded-xl text-xs font-black bg-emerald-500 hover:bg-emerald-400 text-black transition flex items-center gap-1.5 shadow-md cursor-pointer hover:scale-[1.02] active:scale-[0.98]">
+                                    <i class="fas fa-check text-xs"></i> Complete Task & Advance Climber
+                                </button>
+                                <button onclick="goToPhaseInRoadmap(${ongoingPhase.id})" class="py-1.5 px-3 rounded-xl text-xs font-bold bg-white/10 hover:bg-white/15 text-white transition cursor-pointer">
+                                    View Step Details
+                                </button>
+                            </div>
+                        ` : `
+                            <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-[10px] font-black bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                                <i class="fas fa-campground text-[10px]"></i> CHECKPOINT ${activePhase.id} CAMP � RESTING
+                            </div>
+                            <h4 class="text-sm sm:text-base font-black text-white">Phase ${activePhase.id}: ${activePhase.shortTitle || activePhase.title}</h4>
+                            <p class="text-xs text-slate-300">${activePhaseDone} of ${activePhaseTotal} tasks complete (${activePhasePct}%) � Climber ready to ascend</p>
+                            <div class="pt-1 flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                                <button onclick="goToPhaseInRoadmap(${activePhase.id})" class="py-1.5 px-4 rounded-xl text-xs font-black bg-[#e6993a] hover:bg-[#d8892a] text-black transition flex items-center gap-1.5 shadow-md cursor-pointer hover:scale-[1.02] active:scale-[0.98]">
+                                    <i class="fas fa-play text-[10px]"></i> Start Next Task in Phase ${activePhase.id}
+                                </button>
+                            </div>
+                        `}
+                    </div>
+
+                    <!-- Right: Quick Progress Ring / Stats (Desktop Only) -->
+                    <div class="shrink-0 hidden md:flex flex-col items-end text-right border-l border-emerald-500/20 pl-5 space-y-1">
+                        <span class="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Expedition Progress</span>
+                        <span class="text-2xl font-black text-[#e6993a]">${overallPct}%</span>
+                        <span class="text-[11px] text-slate-300">${totalDone} of ${totalTasks} Steps Done</span>
+                    </div>
+                </div>
+
+                <!-- Subtle background mountain silhouette accent -->
+                <div class="absolute right-0 bottom-0 opacity-10 pointer-events-none text-8xl text-emerald-400 -mr-6 -mb-6">
+                    <i class="fas fa-mountain"></i>
+                </div>
+            </div>
+
             <!-- All 10 Milestones Track: Grid cols-5 on mobile, cols-10 on desktop - ZERO Horizontal Scrolling -->
-            <div class="relative py-2">
+            <div class="relative py-2 pt-6">
                 <!-- Connecting Background Line on Desktop (Through All 10 Nodes) -->
-                <div class="hidden lg:block absolute top-[26px] left-6 right-6 h-1 bg-[var(--card-border)] rounded-full -z-0">
-                    <div class="h-1 rounded-full bg-gradient-to-r from-emerald-500 via-[#e6993a] to-amber-400 transition-all duration-500 shadow-[0_0_10px_rgba(230,153,58,0.5)]" style="width: ${progressTrackWidth}%;"></div>
+                <div class="hidden lg:block absolute top-[38px] left-6 right-6 h-1 bg-[var(--card-border)] rounded-full -z-0">
+                    <div class="h-1 rounded-full bg-gradient-to-r from-emerald-500 via-[#e6993a] to-amber-400 transition-all duration-700 shadow-[0_0_12px_rgba(230,153,58,0.5)]" style="width: ${progressTrackWidth}%;"></div>
                 </div>
 
                 <!-- 10 Columns Grid on Desktop, 5 Columns x 2 Rows on Mobile/Tablet -->
@@ -2989,15 +3153,14 @@
             <div class="mt-2 pt-2 border-t border-[var(--card-border)] flex flex-col sm:flex-row sm:items-center justify-between text-[11px] text-[var(--text-muted)] gap-2">
                 <span class="flex items-center gap-1.5">
                     <i class="fas fa-compass text-[#e6993a]"></i>
-                    <span>All 10 strategic phases mapped. Click any milestone to jump directly into its phase in the roadmap.</span>
+                    <span>Real-time climber tracking: complete tasks to advance the character to the next milestone.</span>
                 </span>
                 <span class="font-bold text-[var(--text-main)] shrink-0">
-                    Final Goal: Leading Technology Company · Jun 2027
+                    Final Goal: Leading Technology Company � Jun 2027
                 </span>
             </div>
         `;
     }
-
     function renderOverview() {
         updateStats();
 
@@ -3011,14 +3174,14 @@
         }
 
         // Populate FOCUS NOW Card
-        document.getElementById('focus-eyebrow').textContent = `FOCUS NOW · PHASE ${activePhase.id}`;
+        document.getElementById('focus-eyebrow').textContent = `FOCUS NOW � PHASE ${activePhase.id}`;
         document.getElementById('focus-title').textContent = activePhase.title;
 
         const pDone = activePhase.tasks.filter(t => t.done).length;
         const pTotal = activePhase.tasks.length;
         const pPct = Math.round((pDone / pTotal) * 100);
         document.getElementById('focus-progress-bar').style.width = `${pPct}%`;
-        document.getElementById('focus-progress-label').textContent = `${pDone}/${pTotal} done · ${pPct}%`;
+        document.getElementById('focus-progress-label').textContent = `${pDone}/${pTotal} done � ${pPct}%`;
 
         // Direct to main task (first incomplete step)
         const steps = getPhaseSteps(activePhase);
@@ -3046,10 +3209,28 @@
         if (uncompletedSteps.length === 0) {
             nextStepsContainer.innerHTML = '<div class="text-xs text-emerald-600 dark:text-emerald-400 font-bold py-2"><i class="fas fa-check-circle mr-1"></i> All steps in this phase complete!</div>';
         } else {
-            nextStepsContainer.innerHTML = uncompletedSteps.map(t => `
-                <div class="flex items-center gap-2.5 text-xs text-[var(--text-main)] py-1 select-none">
-                    <span class="w-4 h-4 rounded-full border border-slate-400/80 dark:border-slate-500 flex items-center justify-center shrink-0"></span>
-                    <span class="truncate font-medium text-[var(--text-main)]">${t.title}</span>
+            nextStepsContainer.innerHTML = uncompletedSteps.map((t) => `
+                <div class="flex items-center justify-between gap-2 text-xs text-[var(--text-main)] py-1.5 px-2.5 rounded-xl bg-[var(--subtle-bg)] border border-[var(--card-border)] hover:border-[#e6993a]/40 transition">
+                    <div class="flex items-center gap-2 min-w-0 flex-1 cursor-pointer" onclick="goToPhaseInRoadmap(${activePhase.id})">
+                        <span class="w-4 h-4 rounded-full border ${t.inProgress ? 'border-[#e6993a] bg-amber-500/20' : 'border-slate-400'} flex items-center justify-center shrink-0">
+                            ${t.inProgress ? '<span class="w-1.5 h-1.5 rounded-full bg-[#e6993a] animate-ping"></span>' : ''}
+                        </span>
+                        <span class="truncate font-semibold text-[var(--text-main)]">${t.title}</span>
+                    </div>
+                    <div class="shrink-0 flex items-center gap-1.5">
+                        ${t.inProgress ? `
+                            <span class="px-2 py-0.5 rounded-full text-[9px] font-black bg-amber-500/20 text-[#a06438] dark:text-[#e6993a] border border-[#e6993a]/30 animate-pulse">
+                                ⚡ Ongoing
+                            </span>
+                            <button onclick="toggleRoadmapTask(${activePhase.id}, ${t.id})" class="px-2 py-0.5 rounded-lg text-[10px] font-black bg-emerald-600 hover:bg-emerald-500 text-white transition cursor-pointer shadow-xs">
+                                Done
+                            </button>
+                        ` : `
+                            <button onclick="startRoadmapTask(${activePhase.id}, ${t.id})" class="px-2 py-0.5 rounded-lg text-[10px] font-bold bg-[#e6993a]/15 hover:bg-[#e6993a] text-[#a06438] dark:text-[#e6993a] hover:text-black border border-[#e6993a]/30 transition cursor-pointer">
+                                Start
+                            </button>
+                        `}
+                    </div>
                 </div>
             `).join('');
         }
@@ -3401,7 +3582,7 @@
                                     <!-- Schedule Info in Expanded View -->
                                     <div class="flex items-center justify-between text-xs text-[var(--text-muted)] font-medium pb-2 border-b border-[var(--card-border)]/60">
                                         <div onclick="event.stopPropagation(); openEditPhaseTimelineModal(${phase.id})" class="flex items-center gap-2 flex-wrap cursor-pointer group/timeline hover:text-[#e6993a] transition" title="Click to choose dates by calendar">
-                                            <span><i class="far fa-calendar-alt text-[#e6993a] mr-1"></i> Phase Timeline: <strong class="underline decoration-[#e6993a]/40 group-hover/timeline:decoration-[#e6993a]">${formatShortDate(phase.startDate)} – ${formatShortDate(phase.deadline)}</strong> (${phase.durationDays || phase.duration || 7} days)</span>
+                                            <span><i class="far fa-calendar-alt text-[#e6993a] mr-1"></i> Phase Timeline: <strong class="underline decoration-[#e6993a]/40 group-hover/timeline:decoration-[#e6993a]">${formatShortDate(phase.startDate)} � ${formatShortDate(phase.deadline)}</strong> (${phase.durationDays || phase.duration || 7} days)</span>
                                             ${phase.deadline !== phase.originalDeadline ? `<span class="text-amber-600 dark:text-amber-400 font-bold">(Orig: ${formatShortDate(phase.originalDeadline)})</span>` : ''}
                                         </div>
                                         <button onclick="event.stopPropagation(); openEditPhaseTimelineModal(${phase.id})" class="px-3 py-1 rounded-xl text-xs font-bold bg-[#e6993a]/15 text-[#a06438] dark:text-[#e6993a] hover:bg-[#e6993a]/25 border border-[#e6993a]/30 transition flex items-center gap-1.5 shadow-xs" title="Choose Phase Dates by Calendar">
@@ -3614,6 +3795,29 @@
         } catch(e) {}
     }
 
+    window.startRoadmapTask = function (phaseId, taskId) {
+        const phase = appState.phases.find(p => p.id === phaseId);
+        if (!phase) return;
+        const task = phase.tasks.find(t => t.id === taskId);
+        if (!task) return;
+
+        // Clear inProgress from other tasks so avatar focuses on this task
+        appState.phases.forEach(p => {
+            p.tasks.forEach(t => {
+                if (t.id !== taskId && !t.done) t.inProgress = false;
+            });
+        });
+
+        task.inProgress = true;
+        task.done = false;
+
+        saveState();
+        updateStats();
+        playTaskCheckSound();
+        showToast(`🚀 Task Started: "${task.title}". The climber is moving toward the milestone!`);
+        renderActiveTrackerView();
+    };
+
     function toggleRoadmapTask(phaseId, taskId) {
         const phase = appState.phases.find(p => p.id === phaseId);
         if (!phase) return;
@@ -3629,6 +3833,7 @@
         task.done = !task.done;
         
         if (task.done) {
+            task.inProgress = false;
             // Check step and phase status AFTER toggle
             const isStepDoneNow = stepTasks.every(t => t.done);
             const isPhaseDoneNow = phase.tasks.every(t => t.done);
@@ -3637,36 +3842,26 @@
                 phase.completed = true;
                 phase.actualCompletionDate = getEffectiveToday();
                 cascadeOnPhaseCompletion(phase.id, phase.actualCompletionDate);
-                // Sound 1: Phase completed sound (Grand celebration)
                 playPhaseCompletedSound();
                 confetti({ particleCount: 140, spread: 100, origin: { y: 0.5 } });
-                showToast(`🎉 Phase ${phase.id} Complete!`);
+                showToast(`🏆 Phase ${phase.id} Complete! The climber advances to the next phase!`);
             } else if (isStepDoneNow && !wasStepDoneBefore) {
-                // Sound 2: Step completed sound (All tasks in this step done)
                 playStepCompletedSound();
                 confetti({ particleCount: 70, spread: 75, origin: { y: 0.65 } });
-                showToast(`✨ ${stepTitle} Completed!`);
+                showToast(`⭐ ${stepTitle} Completed! The climber steps up!`);
+            } else {
+                playTaskCheckSound();
+                showToast(`✅ Task completed! Milestone progress updated.`);
             }
-            // NO sound for individual task clicking
+        } else {
+            task.inProgress = false;
         }
-        // NO sound on unchecking
         
         saveState();
         updateStats();
         updateSidebarCurrentPhase();
-
-        const stepDetailView = document.getElementById('view-step-detail');
-        if (stepDetailView && stepDetailView.classList.contains('active')) {
-            renderStepDetailPage();
-        } else {
-            const activeNav = document.querySelector('.nav-btn.active')?.dataset?.view;
-            if (activeNav === 'roadmap') renderRoadmap();
-            if (activeNav === 'overview') renderOverview();
-            if (activeNav === 'today') renderToday();
-            if (activeNav === 'tasks') renderTasks();
-        }
+        renderActiveTrackerView();
     }
-
     function promptRenameRoadmapTask(phaseId, taskId, currentTitle) {
         const newTitle = prompt("Rename this step:", currentTitle);
         if (newTitle && newTitle.trim() && newTitle.trim() !== currentTitle) {
@@ -4093,6 +4288,23 @@
 
                                 <!-- Interactive Tool Icons on the Full Page -->
                                 <div class="flex items-center gap-1.5 shrink-0">
+                                    ${!t.done ? (t.inProgress ? `
+                                        <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-black bg-amber-500/20 text-[#a06438] dark:text-[#e6993a] border border-[#e6993a]/40 animate-pulse">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-[#e6993a]"></span> Ongoing
+                                        </span>
+                                        <button onclick="event.stopPropagation(); toggleRoadmapTask(${phase.id}, ${t.id})" class="px-2.5 py-1 rounded-lg text-[11px] font-black bg-emerald-600 hover:bg-emerald-500 text-white transition flex items-center gap-1 cursor-pointer shadow-xs" title="Complete this task">
+                                            <i class="fas fa-check text-[10px]"></i> Done
+                                        </button>
+                                    ` : `
+                                        <button onclick="event.stopPropagation(); startRoadmapTask(${phase.id}, ${t.id})" class="px-2.5 py-1 rounded-lg text-[11px] font-bold bg-[#e6993a]/15 hover:bg-[#e6993a] text-[#a06438] dark:text-[#e6993a] hover:text-black border border-[#e6993a]/30 transition flex items-center gap-1 cursor-pointer" title="Start Task">
+                                            <i class="fas fa-play text-[9px]"></i> Start Task
+                                        </button>
+                                    `) : `
+                                        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                                            <i class="fas fa-check text-[9px]"></i> Done
+                                        </span>
+                                    `}
+
                                     <button onclick="event.stopPropagation(); promptRenameRoadmapTask(${phase.id}, ${t.id}, '${escapeQuote(t.title)}')" class="p-1.5 rounded-lg text-[var(--text-muted)] hover:text-[#e6993a] hover:bg-black/5 dark:hover:bg-white/5 transition" title="Rename Task">
                                         <i class="fas fa-pencil-alt text-xs"></i>
                                     </button>
@@ -4400,7 +4612,7 @@
                 <div class="flex items-start justify-between gap-2">
                     <span class="text-xs font-bold text-[var(--text-main)] leading-snug flex-1">${t.title}</span>
                     <span class="text-[10px] font-bold px-2 py-0.5 rounded-full ${t.done ? 'bg-emerald-500/15 text-emerald-600 dark:text-emerald-400' : 'bg-amber-500/15 text-amber-700 dark:text-amber-400'}">
-                        ${t.done ? '✓ Done' : 'Pending'}
+                        ${t.done ? '? Done' : 'Pending'}
                     </span>
                 </div>
                 <div class="flex items-center gap-2 flex-wrap">
@@ -4451,7 +4663,7 @@
         const [y, m] = baseDateStr.split('-').map(Number);
         phasePickerMonthDate = new Date(y, m - 1, 1);
 
-        document.getElementById('phase-timeline-title').textContent = `Phase ${phase.id} — Choose by Calendar`;
+        document.getElementById('phase-timeline-title').textContent = `Phase ${phase.id} � Choose by Calendar`;
         document.getElementById('phase-timeline-name').textContent = phase.title;
 
         document.getElementById('phase-start-input').value = phasePickerStartDate;
@@ -4672,7 +4884,7 @@
         renderRoadmap();
         if (typeof renderDeadlinesView === 'function') renderDeadlinesView();
         if (window.renderCalendarReminders) window.renderCalendarReminders();
-        showToast(`Phase ${phase.id} dates updated: ${formatShortDate(phase.startDate)} – ${formatShortDate(phase.deadline)}`);
+        showToast(`Phase ${phase.id} dates updated: ${formatShortDate(phase.startDate)} � ${formatShortDate(phase.deadline)}`);
     }
 
     function quickExtendPhaseDeadline(phaseId, daysToAdd) {
@@ -4921,3 +5133,5 @@
     <script src="business_goals.js"></script>
 </body>
 </html>
+
+
